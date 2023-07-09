@@ -21,9 +21,15 @@ class Shape
 public:
 	enum class shapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Test};
 
-	Shape(/* Maybe change the type of QPainter*/ QPainter* qpaint, int penWidth,
-			int shapeId, Shape::shapeType shape) :
-		id(shapeId), shape(shape), qpainter(qpaint) {} // I added implementation -Daniel
+	Shape (QPaintDevice* device = nullptr, int id = -1, shapeType shape = shapeType::NOShape)
+	 : id(id), shape(shape)
+   	 {
+       		 pen = Qt::SolidLine;
+        	 brush = Qt::NoBrush;
+    	 }
+	//Shape(/* Maybe change the type of QPainter*/ QPainter* qpaint, int penWidth,
+	//		int shapeId, Shape::shapeType shape) :
+	//	id(shapeId), shape(shape), qpainter(qpaint) {} // I added implementation -Daniel
 	virtual ~Shape(){};
 
 
