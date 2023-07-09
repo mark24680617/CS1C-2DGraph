@@ -23,7 +23,7 @@ public:
 
 	Shape(/* Maybe change the type of QPainter*/ QPainter* qpaint, int penWidth,
 			int shapeId, Shape::shapeType shape) :
-		id(shapeId), shapeType(shape), qpainter(qpaint) {} // I added implementation -Daniel
+		id(shapeId), shape(shape), qpainter(qpaint) {} // I added implementation -Daniel
 	virtual ~Shape(){};
 
 
@@ -72,8 +72,8 @@ public:
 	{
 		pen = Qt::SolidLine; // I added implementation -Daniel
 		brush = Qt::NoBrush;
-		qpainter.setPen(pen);
-		qpainter.setBrush(brush);
+		qpainter->setPen(pen);
+		qpainter->setBrush(brush);
 	}
 	void draw_rect(int width, int height); // NO IMPLEMENTATION YET
 
@@ -86,7 +86,7 @@ public:
 protected:
 	QPainter& get_qpainter() const
 	{
-		return qpainter;
+		return *qpainter; // not sure if this is the right return I just added * to the front
 	}
 
 private:
