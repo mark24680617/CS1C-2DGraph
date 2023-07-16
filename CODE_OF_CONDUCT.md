@@ -11,7 +11,7 @@ rendering library to draw shapes on a QWidget rendering area. Lastly,
 the program implement the vector class that will be used to store the 
 2D graphics objects displayed by the modeler.
 
-## Our Ruls
+## Our Rules
 
 We as members, contributors, and leaders pledge to make participation in our
 community a harassment-free experience for everyone, regardless of age, body
@@ -60,7 +60,7 @@ contributions that are not aligned to this Code of Conduct, and will communicate
 for moderation decisions when appropriate.
 
 
-## Our Code Standers
+## Our Code Standards
 Variable naming conventions (Camel case)
 Class and function naming conventions
 Clear and concise comments
