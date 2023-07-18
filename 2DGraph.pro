@@ -10,17 +10,20 @@ CONFIG += c++17
 
 SOURCES += \
     contact.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     contact.h \
+    login.h \
     mainwindow.h \
     shape.h \
     vector.h \
 
 FORMS += \
     contact.ui \
+    login.ui \
     mainwindow.ui
 
 # Default rules for deployment.
