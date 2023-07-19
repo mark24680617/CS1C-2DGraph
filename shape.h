@@ -19,9 +19,9 @@ using namespace Qt;
 class Shape
 {
 public:
-	enum class shapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Test};
+    enum class shapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Text};
 
-	Shape (QPaintDevice* device = nullptr, int id = -1, shapeType shape = shapeType::NOShape)
+    Shape (QPaintDevice* device = nullptr, int id = -1, shapeType shape = shapeType::NoShape)
 	 : id(id), shape(shape)
    	 {
        		 pen = Qt::SolidLine;
