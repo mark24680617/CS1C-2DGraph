@@ -12,6 +12,7 @@ Worked on by:
 #include <QPen>
 #include <QPoint>
 #include <QFont>
+#include <QDebug>
 
 using namespace std;
 using namespace Qt;
@@ -83,18 +84,18 @@ public:
 	}
 
     //don't use cout for QT, use Debug()
-//	void printlisting(vector<Shape> &shapes){
+//	void printlisting(vector<Shape> &shapes){ //all couts have been changed to qDebug() coming from the QDebug library
 //        for(auto Shape : shapes) {
-//            cout << "ShapeID: " << shapes->id() << "\n";
-//            cout <<"ShapeType : " << shapes->shape() << "\n";
-//            cout << "ShapeDimensions: " << shapes->dimensions() << "\n";
-//            cout << "Pen Color: "<< pen.(color) << "\n";
-//            cout << "Pen Width: " << pen.(width) << "\n";
-//            cout << "Pen Style: " << pen.(penStyle)<< "\n";
-//            cout << "Pen Cap Style: " << pen.(penCapStyle) << "\n";
-//            cout << "Pen Join Style: " << pen.(penJoinStyle) << "\n";
-//            cout << "Brush Color: " << brush.(color) << "\n";
-//            cout << "Brush Color: " << brush.(brushStyle) << "\n";
+//            qDebug() << "ShapeID: " << shapes->id() << "\n";
+//            qDebug() <<"ShapeType : " << shapes->shape() << "\n";
+//            qDebug() << "ShapeDimensions: " << shapes->dimensions() << "\n";
+//            qDebug() << "Pen Color: "<< pen.(color) << "\n";
+//            qDebug() << "Pen Width: " << pen.(width) << "\n";
+//            qDebug() << "Pen Style: " << pen.(penStyle)<< "\n";
+//            qDebug() << "Pen Cap Style: " << pen.(penCapStyle) << "\n";
+//            qDebug() << "Pen Join Style: " << pen.(penJoinStyle) << "\n";
+//            qDebug() << "Brush Color: " << brush.(color) << "\n";
+//            qDebug() << "Brush Color: " << brush.(brushStyle) << "\n";
 //        }
 //    }
 
