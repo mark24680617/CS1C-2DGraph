@@ -15,7 +15,7 @@ void polygon::draw(const int translate_x, const int translate_y)
     //get_qpainter().save(); may not need
     //get_qpainter().translate(translate_x, translate_y); dont worry/ dont need
 
-    //get_qpainter().drawPolygon(points.begin(), points.size()); //Review: There are no matching function to called drawPolygon
+    get_qpainter().drawPolygon(&points[0], points.size()); //Review: There are no matching function to called drawPolygon // This may have fixed it
 
     get_qpainter().restore();
 }
