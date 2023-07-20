@@ -61,13 +61,21 @@ for moderation decisions when appropriate.
 
 
 ## Our Code Standards
-Variable naming conventions (Camel case)
-Class and function naming conventions
-Clear and concise comments
-Indentations
-Portability
-Reusability and scalability
-Testing your own code befor pushing to main branch.
+Doxygen Documentation required. 
+
+Variable naming conventions(Camel case). 
+
+Class and function naming conventions. 
+
+Clear and concise comments. 
+
+Indentations. 
+
+Portability. 
+
+Reusability and scalability. 
+
+Testing your own code befor pushing to main branch. 
 
 ## Scrum Team:
 

@@ -15,7 +15,7 @@ void polygon::draw(const int translate_x, const int translate_y)
     //get_qpainter().save(); may not need
     //get_qpainter().translate(translate_x, translate_y); dont worry/ dont need
 
-    get_qpainter().drawPolygon(points.begin(), points.size());
+    //get_qpainter().drawPolygon(points.begin(), points.size()); //Review: There are no matching function to called drawPolygon
 
     get_qpainter().restore();
 }
@@ -48,7 +48,7 @@ double polygon::area() const
 {
     double area;
 
-    int j = points.size() - 1)
+    int j = (points.size() - 1);
     for(int i = 0; i < points.size(); i++)
     {
         area = area + (points[j].x() + points[i].x()) * (points[j].y() + points[i].y());
