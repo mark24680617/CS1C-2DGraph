@@ -14,7 +14,7 @@ void PolyLine::draw(const int translate_x, const int translate_y)
     //get_qpainter().save(); may not need
     //get_qpainter().translate(translate_x, translate_y); dont worry/ dont need
 
-    get_qpainter().drawPolyline(points.begin(), points.size());
+    //get_qpainter().drawPolyline(points.begin(), points.size()); //Review: There are no function to call drawPolyline
 
     get_qpainter().restore();
 }

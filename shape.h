@@ -82,20 +82,21 @@ public:
 		qpainter->setBrush(brush);
 	}
 
-	void printlisting(vector<Shape> &shapes){
-        for(auto Shape : shapes) {
-            cout << "ShapeID: " << shapes->id() << "\n";
-            cout <<"ShapeType : " << shapes->shape() << "\n";
-            cout << "ShapeDimensions: " << shapes->dimensions() << "\n";
-            cout << "Pen Color: "<< pen.(color) << "\n";
-            cout << "Pen Width: " << pen.(width) << "\n";
-            cout << "Pen Style: " << pen.(penStyle)<< "\n";
-            cout << "Pen Cap Style: " << pen.(penCapStyle) << "\n";
-            cout << "Pen Join Style: " << pen.(penJoinStyle) << "\n";
-            cout << "Brush Color: " << brush.(color) << "\n";
-            cout << "Brush Color: " << brush.(brushStyle) << "\n";
-        }
-    }
+    //don't use cout for QT, use Debug()
+//	void printlisting(vector<Shape> &shapes){
+//        for(auto Shape : shapes) {
+//            cout << "ShapeID: " << shapes->id() << "\n";
+//            cout <<"ShapeType : " << shapes->shape() << "\n";
+//            cout << "ShapeDimensions: " << shapes->dimensions() << "\n";
+//            cout << "Pen Color: "<< pen.(color) << "\n";
+//            cout << "Pen Width: " << pen.(width) << "\n";
+//            cout << "Pen Style: " << pen.(penStyle)<< "\n";
+//            cout << "Pen Cap Style: " << pen.(penCapStyle) << "\n";
+//            cout << "Pen Join Style: " << pen.(penJoinStyle) << "\n";
+//            cout << "Brush Color: " << brush.(color) << "\n";
+//            cout << "Brush Color: " << brush.(brushStyle) << "\n";
+//        }
+//    }
 
 	void draw_rect(int width, int height); // NO IMPLEMENTATION YET
 

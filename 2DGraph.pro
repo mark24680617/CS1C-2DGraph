@@ -12,7 +12,12 @@ SOURCES += \
     contact.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    line.cpp \
+    polyline.cpp \
+    polygon.cpp \
+    Rectangle.cpp \
+    Ellipse.cpp \
 
 HEADERS += \
     contact.h \
@@ -20,6 +25,11 @@ HEADERS += \
     mainwindow.h \
     shape.h \
     vector.h \
+    line.h \
+    polyline.h \
+    polygon.h \
+    Rectangle.h \
+    Ellipse.h \
 
 FORMS += \
     contact.ui \
