@@ -77,8 +77,8 @@ shape* readFile::ReadLine(fstream& inFile , int id){
 	inFile.ignore();
 	inFile>>y2;
 
-	Qpoint first(x , y);
-	Qpoint second(x2 , y2);
+	QPoint first(x , y);
+	QPoint second(x2 , y2);
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
 	getline(inFile , color);
@@ -205,10 +205,10 @@ shape* readFile::ReadPolyLine(fstream& inFile , int id){
 
 	QColor lineColor2 (getColor(bColor));
 
-	Qpoint first(x1 , y1);
-	Qpoint second(x2 , y2);
-	Qpoint third(x3 , y3);
-	Qpoint forth(x4 , y4);
+	QPoint first(x1 , y1);
+	QPoint second(x2 , y2);
+	QPoint third(x3 , y3);
+	QPoint forth(x4 , y4);
 
 	PolyLine *result;
 	result->set_point(first);
@@ -216,7 +216,7 @@ shape* readFile::ReadPolyLine(fstream& inFile , int id){
 	result->set_point(third);
 	result->set_point(forth);
 	result->set_shapeID(id);
-	result->set_brush(linecolor2 , getBrushStyle());
+	result->set_brush(linecolor2 , getBrushStyle(bStyle));
 	result->set_pen(linecolor , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
 
 	return result;
@@ -234,6 +234,7 @@ shape* readFile::ReadRectangle(fstream& inFile , int id){
 	string capStyle;
 	string Jstyle;
 	string bColor;
+	string bStyle;
 
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
@@ -276,13 +277,13 @@ shape* readFile::ReadRectangle(fstream& inFile , int id){
 	Rectangle *result;
 	result->set_shapeID(id);
 	result->set_points(topRight , buttomLeft);
-	result->set_brush(linecolor2 , getBrushStyle());
+	result->set_brush(linecolor2 , getBrushStyle(bStyle));
 	result->set_pen(linecolor , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
 	
 	return result;
 }
 
-shape* readFile::ReadCircle(fstream& inFile , int id){
+shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
 
 	int a , b, c;
 	string color;
@@ -290,6 +291,8 @@ shape* readFile::ReadCircle(fstream& inFile , int id){
 	string style;
 	string capStyle;
 	string Jstyle;
+	string bStyle;
+	string bColor;
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
 	inFile>>a;
@@ -316,6 +319,23 @@ shape* readFile::ReadCircle(fstream& inFile , int id){
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
 	getline(inFile , Jstyle);
 
+	inFile.ignore(numeric_limits<streamsize>::max() , ":");
+	getline(inFile , bStyle);
+
+	inFile.ignore(numeric_limits<streamsize>::max() , ":");
+	getline(inFile , bColor);
+
+	QColor lineColor2 (getColor(bColor));
+
+	QRect rect(a,b,c,c);
+	
+	Ellipse *result;
+	result->set_shapeID(id);
+	result->set_rect(rect);
+	result->set_brush(linecolor2 , getBrushStyle(bStyle));
+	result->set_pen(linecolor , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
+	
+	return result;
 	
 }
 
@@ -328,6 +348,8 @@ shape* readFile::ReadSquare(fstream& inFile , int id){
 	string style;
 	string capStyle;
 	string Jstyle;
+	string bColor;
+	string bStyle;
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
 	inFile>>a;
@@ -354,8 +376,27 @@ shape* readFile::ReadSquare(fstream& inFile , int id){
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
 	getline(inFile , Jstyle);
 
-	
+	inFile.ignore(numeric_limits<streamsize>::max() , ":");
+	getline(inFile , bStyle);
 
+	inFile.ignore(numeric_limits<streamsize>::max() , ":");
+	getline(inFile , bColor);
+
+	QColor lineColor2 (getColor(bColor));
+
+	int length = a-c;
+
+
+	QPoint topLeft(a , b);
+	QPoint buttomRight (c , b-length)
+
+	Rectangle *result;
+	result->set_shapeID(id);
+	result->set_points(topLeft , buttomRight);
+	result->set_brush(linecolor2 , getBrushStyle(bStyle));
+	result->set_pen(linecolor , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
+
+	return result;
 }
 
 
@@ -367,6 +408,8 @@ shape* readFile::ReadEcllipce(fstream& inFile , int id){
 	string style;
 	string capStyle;
 	string Jstyle;
+	string bStyle;
+	string bColor;
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
 	inFile>>a;
@@ -394,18 +437,35 @@ shape* readFile::ReadEcllipce(fstream& inFile , int id){
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
 	getline(inFile , Jstyle);
 
-	
+	inFile.ignore(numeric_limits<streamsize>::max() , ":");
+	getline(inFile , bStyle);
 
+	inFile.ignore(numeric_limits<streamsize>::max() , ":");
+	getline(inFile , bColor);
+
+	QColor lineColor2 (getColor(bColor));
+
+	QRect rect(a,b,c,d);
+
+	Ellipse *result;
+	result->set_shapeID(id);
+	result->set_rect(rect);
+	result->set_brush(linecolor2 , getBrushStyle(bStyle));
+	result->set_pen(linecolor , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
+	
+	return result;
 }
 
-shape* readFile::ReadText(fstream& inFile , int id){
+shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 
 	int a ,b, c,d;
 	string color;
-	int w;
-	string style;
-	string capStyle;
-	string Jstyle;
+	int pointSize;
+	string textString;
+	string aligne;
+	string fontFamily;
+	string fontStyle;
+	string fontWeight;
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
 	inFile>>a;
@@ -417,21 +477,36 @@ shape* readFile::ReadText(fstream& inFile , int id){
 	inFile>>d;
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
+	getline(inFile,textString);
+
+	inFile.ignore(numeric_limits<streamsize>::max() , ":");
 	getline(inFile , color);
 
 	QColor lineColor (getColor(color));
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
-	inFile>>w;
+	getline(inFile , aligne);
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
-	getline(inFile , style);
+	inFile>>pointSize;
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
-	getline(inFile , capStyle);
+	getline(inFile , fontFamily);
+
 
 	inFile.ignore(numeric_limits<streamsize>::max() , ":");
-	getline(inFile , Jstyle);
+	getline(inFile , fontStyle);
+
+
+	inFile.ignore(numeric_limits<streamsize>::max() , ":");
+	getline(inFile , fontFamily);
+
+
+	inFile.ignore(numeric_limits<streamsize>::max() , ":");
+	getline(inFile , fontWeight);
+
+	Text *result;
+	
 
 	
 }
