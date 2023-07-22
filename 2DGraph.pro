@@ -18,6 +18,8 @@ SOURCES += \
     polygon.cpp \
     Rectangle.cpp \
     Ellipse.cpp \
+    Text.cpp \
+    readFile.cpp \
 
 HEADERS += \
     contact.h \
@@ -30,6 +32,8 @@ HEADERS += \
     polygon.h \
     Rectangle.h \
     Ellipse.h \
+    Text.h \
+    readFile.h \
 
 FORMS += \
     contact.ui \
