@@ -13,32 +13,39 @@
 #include "Text.h"
 #include "Rectangle.h"
 
+int const moveP_ID=9;
+int const moveP_Type=11;
+int const moveP_Dimentions=17;
+int const moveP_Pen=10;
+int const moveP_PenCapStyle=13;
+int const moveP_PenJoinStyle=14;
+
 
 using namespace std;
 using namespace Qt;
 
+
 class readFile{
 
 	private:
-	vector<*shape> list;
+    vector<*Shape> list;
 	fstream inFile;
 
 	public:
 
-	readFile();
 	readFile(string);
 
 	// all of these methods can be protected
 
 	// would return the shape object and push_it_back to the vector
-	shape* ReadLine(fstream&, int);
-	shape* ReadPolyLine(fstream&, int);
-	shape* ReadPolygon(fstream& , int);
-	shape* ReadRectangle(fstream& , int);
-	shape* ReadSquare(fstream$ , int);
-	shape* ReadCircle(fstream& , int);
-	shape* ReadEcllipce(fstream& , int);
-	shape* ReadText(fstream& , int);
+    Shape* ReadLine(fstream&, int);
+    Shape* ReadPolyLine(fstream&, int);
+    Shape* ReadPolygon(fstream& , int);
+    Shape* ReadRectangle(fstream& , int);
+    Shape* ReadSquare(fstream& , int);
+    Shape* ReadCircle(fstream& , int);
+    Shape* ReadEcllipce(fstream& , int);
+    Shape* ReadText(fstream& , int);
 
 
 	// these methods are the swtich stuctures
@@ -47,8 +54,8 @@ class readFile{
 	PenCapStyle getCapStyle(string&);
 	PenJoinStyle getJoinStyle(string&);
 	BrushStyle getBrushStyle(string&);
-	Weight	getTextFontWeight(string&);
+    QFont::Weight	getTextFontWeight(string&);
 	AlignmentFlag getAlignment(string&);
-	QFont getTextFontStyle(string&);
+    QFont::Style getTextFontStyle(string&);
 
 };
