@@ -12,6 +12,7 @@
 #include "polyline.h"
 #include "Text.h"
 #include "Rectangle.h"
+#include "Ellipse.h"
 
 int const moveP_ID=9;
 int const moveP_Type=11;
@@ -19,6 +20,7 @@ int const moveP_Dimentions=17;
 int const moveP_Pen=10;
 int const moveP_PenCapStyle=13;
 int const moveP_PenJoinStyle=14;
+int const moveP_Brush=12;
 
 
 using namespace std;
@@ -28,7 +30,7 @@ using namespace Qt;
 class readFile{
 
 	private:
-    vector<*Shape> list;
+    vector<Shape*> list;
 	fstream inFile;
 
 	public:
