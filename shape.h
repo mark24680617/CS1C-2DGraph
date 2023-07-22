@@ -59,11 +59,12 @@ public:
 		pen.setCapStyle(penCapStyle);
 		pen.setJoinStyle(penJoinStyle);
 	}
-
+/*
 	void set_pen(Qt::GlobalColor color)
 	{
 		pen.setColor(color); // I added implementation -Daniel
 	}
+  */
 	void set_brush(Qt::GlobalColor color, Qt::BrushStyle brushStyle) // I added method -Daniel
 	{
 		brush.setColor(color); // I added implementation -Daniel
