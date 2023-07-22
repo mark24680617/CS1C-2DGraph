@@ -102,7 +102,7 @@ public:
 
 	void draw_rect(int width, int height); // NO IMPLEMENTATION YET
 
-	virtual void draw( /* May Need to add something here... like the object? idk */const int translate_x, const int translate_y) = 0;
+    virtual void draw(QPainter& painter, const int translate_x, const int translate_y) = 0;
 
 	virtual double perimeter() const = 0;
 

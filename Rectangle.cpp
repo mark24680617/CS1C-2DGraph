@@ -4,7 +4,7 @@ void Rectangle::set_points(const QPoint& top_left, const QPoint& bottom_right)
     this->top_left = top_left;
     this->bottom_right = bottom_right;
 }
-
+/*
 void Rectangle::draw(const int translate_x, const int translate_y)
 {
     get_qpainter().setPen(get_pen());
@@ -16,7 +16,7 @@ void Rectangle::draw(const int translate_x, const int translate_y)
     get_qpainter().drawRect(rect);
 
     get_qpainter().restore();
-}
+}*/
 
 double Rectangle::perimeter() const
 {

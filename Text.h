@@ -54,7 +54,7 @@ public:
      * @param translate_x xPosition
      * @param translate_y yPosition
      */
-    void draw(const int translate_x, const int translate_y) override;
+    //void draw(const int translate_x, const int translate_y) override;
 
     /**
      * @brief perimeter for text

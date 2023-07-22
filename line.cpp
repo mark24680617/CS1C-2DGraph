@@ -7,12 +7,25 @@ void Line::set_points(const QPoint& point_begin, const QPoint& point_end)
     this->point_end = point_end;
 }
 
-void Line::draw(const int translate_x, const int translate_y)
+void Line::draw(QPainter& painter, const int translate_x, const int translate_y)
 {
-    get_qpainter().setPen(get_pen());
-    get_qpainter().setBrush(get_brush());
+    painter.setPen(get_pen());
+    painter.setBrush(get_brush());
 
-    get_qpainter().drawLine(point_begin, point_end);
 
-    get_qpainter().restore();
+    painter.drawLine(point_begin, point_end);
+
+    //get_qpainter().restore(); SOMEONE MAY NEED THIS FOR THE MOVE FUNCTIONS
+}
+
+//Euclidean distance formula
+double Line::perimeter() const
+{
+    double perimeter = 0.0;
+
+    const QPoint& begin = point_begin;
+    const QPoint& end = point_end;
+    perimeter = std::sqrt(std::pow(end.x() - begin.x(), 2) + std::pow(end.y() - begin.y(), 2));
+
+    return perimeter;
 }
