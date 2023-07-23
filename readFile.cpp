@@ -19,7 +19,7 @@ readFile::readFile(string address){
 			break;
 		}
 
-		switch (typeStr[1])
+        switch (typeStr[0])
 		{
 		case 'L': list.push_back(ReadLine(inFile , id));
 			break;
@@ -31,7 +31,8 @@ readFile::readFile(string address){
                     list.push_back(ReadPolygon(inFile , id));
                 }
 			break;
-		case 'R': list.push_back(ReadRectangle(inFile , id));
+        /*
+        case 'R': list.push_back(ReadRectangle(inFile , id));
 			break;		
 
 		case 'S': list.push_back(ReadRectangle(inFile , id));
@@ -39,12 +40,13 @@ readFile::readFile(string address){
 
 		case 'E': list.push_back(ReadEcllipce(inFile , id));
 			break;
-/*
+
 		case 'C': list.push_back(ReadCircle(inFile , id));
 			break;
-*/
+
 		case 'T': list.push_back(ReadText(inFile , id));
 			break;
+            */
 		}
 	}
 }
@@ -215,8 +217,6 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
     inFile.ignore(moveP_Brush);
 	getline(inFile , bColor);
 
-	QColor lineColor2 (getColor(bColor));
-
 	QPoint first(x1 , y1);
 	QPoint second(x2 , y2);
 	QPoint third(x3 , y3);
@@ -233,7 +233,7 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
 
 	return result;
 }
-
+/*
 Shape* readFile::ReadRectangle(fstream& inFile , int id){
 
 	int x;
@@ -290,7 +290,7 @@ Shape* readFile::ReadRectangle(fstream& inFile , int id){
 	
 	return result;
 }
-
+*/
 /*
 Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
 
@@ -346,7 +346,7 @@ Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
 	
 }
 */
-
+/*
 Shape* readFile::ReadSquare(fstream& inFile , int id){
 
 	int a,b,c;
@@ -401,8 +401,8 @@ Shape* readFile::ReadSquare(fstream& inFile , int id){
 
 	return result;
 }
-
-
+*/
+/*
 Shape* readFile::ReadEcllipce(fstream& inFile , int id){
 
 	int a ,b, c,d;
@@ -444,8 +444,6 @@ Shape* readFile::ReadEcllipce(fstream& inFile , int id){
     inFile.ignore(moveP_Brush);
 	getline(inFile , bColor);
 
-	QColor lineColor2 (getColor(bColor));
-
 	QRect rect(a,b,c,d);
 
     Ellipse *result = new Ellipse;
@@ -456,7 +454,8 @@ Shape* readFile::ReadEcllipce(fstream& inFile , int id){
 	
 	return result;
 }
-
+*/
+/*
 Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 
 	int a ,b, c,d;
@@ -510,7 +509,7 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 
     return result;
 }
-
+*/
 
 GlobalColor readFile::getColor(string& temp){
     
@@ -652,4 +651,8 @@ QFont::Style readFile::getTextFontStyle(string& temp){
 		break;
 	}
     return QFont::StyleNormal;
+}
+
+vector<Shape*>readFile::getVector(){
+    return list;
 }

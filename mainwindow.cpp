@@ -8,6 +8,7 @@
 #include "shape.h"
 #include "polygon.h"
 #include "polyline.h"
+#include "readFile.h""
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -39,6 +40,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
     painter.drawRect(x, y, width, height);*/
 
     // THIS IS MANUALLY ENTERING THE INFO!!! NOT USING PARSER OR VECTOR YET!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! <--- IMPORTANT! - daniel
+    /*
     int offsetX = 150;
     int offsetY = 150;
 
@@ -71,9 +73,17 @@ void MainWindow::paintEvent(QPaintEvent *event)
     polyline.set_point(QPoint(120 + polylineOffsetX, 100 + offsetY));
     polyline.set_pen(Qt::green, 2, Qt::SolidLine, Qt::FlatCap, Qt::MiterJoin);
     polyline.draw(painter, 0, 0);
+*/
 
+    QMainWindow::paintEvent(event);
+    QPainter painter(this);
+    readFile file("../shapes.txt");
+    vector<Shape*> results;
+    results = file.getVector();
+    for(Shape* a : results){
+        a->draw(painter , 0 , 0);
+    }
 }
-
 
 
 

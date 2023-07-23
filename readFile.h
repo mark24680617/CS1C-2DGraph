@@ -30,12 +30,12 @@ using namespace Qt;
 class readFile{
 
 	private:
-    vector<Shape*> list;
 	fstream inFile;
 
 	public:
+    vector<Shape*> list;
 
-	readFile(string);
+    readFile(string);
 
 	// all of these methods can be protected
 
@@ -59,5 +59,7 @@ class readFile{
     QFont::Weight	getTextFontWeight(string&);
 	AlignmentFlag getAlignment(string&);
     QFont::Style getTextFontStyle(string&);
+
+    vector<Shape*> getVector();
 
 };
