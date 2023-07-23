@@ -1,4 +1,4 @@
-#include "text.h"
+#include "Text.h"
 
 void Text::set_text(const QString& text)
 {
