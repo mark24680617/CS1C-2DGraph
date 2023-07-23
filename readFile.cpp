@@ -12,6 +12,8 @@ readFile::readFile(string address){
         inFile.ignore(moveP_ID);
 		inFile>>id;
 
+        inFile.ignore(256, '\n');
+
         inFile.ignore(moveP_Type);
 		inFile>>typeStr;
 
@@ -73,6 +75,8 @@ Shape* readFile::ReadLine(fstream& inFile , int id){
 	inFile.ignore();
 	inFile>>y2;
 
+    inFile.ignore(256, '\n');
+
 	QPoint first(x , y);
 	QPoint second(x2 , y2);
 
@@ -82,6 +86,8 @@ Shape* readFile::ReadLine(fstream& inFile , int id){
 
     inFile.ignore(moveP_Pen);
 	inFile>>w;
+
+    inFile.ignore(256, '\n');
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , style);
@@ -129,6 +135,8 @@ Shape* readFile::ReadPolyLine(fstream& inFile , int id){
 	inFile.ignore();
 	inFile>>y4;
 	inFile.ignore();
+
+    inFile.ignore(256, '\n');
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , color);
@@ -195,12 +203,16 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
     inFile>>y4;
     inFile.ignore();
 
+    inFile.ignore(256, '\n');
+
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , color);
 
     inFile.ignore(moveP_Pen);
 	inFile>>w;
+
+    inFile.ignore(256, '\n');
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , style);
