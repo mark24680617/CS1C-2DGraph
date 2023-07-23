@@ -33,6 +33,7 @@ public:
 	//	id(shapeId), shape(shape), qpainter(qpaint) {} // I added implementation -Daniel
 	virtual ~Shape(){};
 
+	
 
 	shapeType get_shape() const
 	{

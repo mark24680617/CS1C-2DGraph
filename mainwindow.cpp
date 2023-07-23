@@ -8,7 +8,7 @@
 #include "shape.h"
 #include "polygon.h"
 #include "polyline.h"
-#include "readFile.h""
+#include "readFile.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -77,7 +77,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
     QMainWindow::paintEvent(event);
     QPainter painter(this);
-    readFile file("../shapes.txt");
+    readFile file("shapes.txt");
     vector<Shape*> results;
     results = file.getVector();
     for(Shape* a : results){
