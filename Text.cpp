@@ -26,7 +26,7 @@ void Text::set_text_font(const QString& fontFamily, QFont::Style fontStyle, int 
     textFontStyle = fontStyle;
     textFontWeight = fontWeight;
 }
-
+/*
 void Text::draw(const int translate_x, const int translate_y)
 {
     QPainter& painter = get_qpainter();
@@ -34,4 +34,4 @@ void Text::draw(const int translate_x, const int translate_y)
     painter.setFont(QFont(textFontFamily, textPointSize, textFontWeight, textFontStyle));
     painter.drawText(QPoint(translate_x, translate_y), text);
     painter.restore();
-}
+}*/
