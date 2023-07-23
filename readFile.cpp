@@ -9,7 +9,6 @@ readFile::readFile(string address){
 		
 		string typeStr;
 
-
         inFile.ignore(moveP_ID);
 		inFile>>id;
 
@@ -40,10 +39,10 @@ readFile::readFile(string address){
 
 		case 'E': list.push_back(ReadEcllipce(inFile , id));
 			break;
-
+/*
 		case 'C': list.push_back(ReadCircle(inFile , id));
 			break;
-
+*/
 		case 'T': list.push_back(ReadText(inFile , id));
 			break;
 		}
@@ -93,7 +92,7 @@ Shape* readFile::ReadLine(fstream& inFile , int id){
     inFile.ignore(moveP_PenJoinStyle);
 	getline(inFile , Jstyle);
 
-    Line *line;
+    Line *line = new Line;
     line->set_points(first , second);
     line->set_pen(getColor(color) , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
     line->set_shapeID(id);
@@ -153,7 +152,7 @@ Shape* readFile::ReadPolyLine(fstream& inFile , int id){
 	QPoint forth(x4 , y4);
 
 
-    PolyLine *result;
+    PolyLine *result = new PolyLine;
 	result->set_point(first);
 	result->set_point(second);
 	result->set_point(third);
@@ -223,7 +222,7 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
 	QPoint third(x3 , y3);
 	QPoint forth(x4 , y4);
 
-    polygon *result;
+    polygon *result = new polygon;
 	result->set_point(first);
 	result->set_point(second);
 	result->set_point(third);
@@ -280,12 +279,10 @@ Shape* readFile::ReadRectangle(fstream& inFile , int id){
     inFile.ignore(moveP_Brush);
     getline(inFile , bStyle);
 
-	QColor lineColor2 (getColor(bColor));
-
     QPoint topRight(x,y);
 	QPoint buttomLeft(x2 ,y2);
 
-    Rectangle *result;
+    Rectangle *result = new Rectangle;
 	result->set_shapeID(id);
 	result->set_points(topRight , buttomLeft);
     result->set_brush(getColor(color) , getBrushStyle(bStyle));
@@ -294,6 +291,7 @@ Shape* readFile::ReadRectangle(fstream& inFile , int id){
 	return result;
 }
 
+/*
 Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
 
 	int a , b, c;
@@ -336,8 +334,6 @@ Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
     inFile.ignore(moveP_Brush);
 	getline(inFile , bColor);
 
-	QColor lineColor2 (getColor(bColor));
-
 	QRect rect(a,b,c,c);
 	
     Ellipse *result;
@@ -349,7 +345,7 @@ Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
 	return result;
 	
 }
-
+*/
 
 Shape* readFile::ReadSquare(fstream& inFile , int id){
 
@@ -397,7 +393,7 @@ Shape* readFile::ReadSquare(fstream& inFile , int id){
 	QPoint topLeft(a , b);
 	QPoint buttomRight (c , b-length);
 
-	Rectangle *result;
+    Rectangle *result = new Rectangle;
 	result->set_shapeID(id);
 	result->set_points(topLeft , buttomRight);
     result->set_brush(getColor(bColor), getBrushStyle(bStyle));
@@ -430,8 +426,6 @@ Shape* readFile::ReadEcllipce(fstream& inFile , int id){
     inFile.ignore(moveP_Pen);
 	getline(inFile , color);
 
-	QColor lineColor (getColor(color));
-
     inFile.ignore(moveP_Pen);
 	inFile>>w;
 
@@ -454,7 +448,7 @@ Shape* readFile::ReadEcllipce(fstream& inFile , int id){
 
 	QRect rect(a,b,c,d);
 
-	Ellipse *result;
+    Ellipse *result = new Ellipse;
 	result->set_shapeID(id);
 	result->set_rect(rect);
     result->set_brush(getColor(bColor) , getBrushStyle(bStyle));
@@ -489,8 +483,6 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
     inFile.ignore(moveP_Pen+1);
 	getline(inFile , color);
 
-	QColor lineColor (getColor(color));
-
     inFile.ignore(15);
 	getline(inFile , aligne);
 
@@ -512,8 +504,9 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
     inFile.ignore(17);
 	getline(inFile , fontWeight);
 
-	Text *result;
-	
+    Text *result = new Text;
+    result->set_shapeID(id);
+
 
     return result;
 }
@@ -547,11 +540,8 @@ GlobalColor readFile::getColor(string& temp){
 		break;
 	case 'y' : return GlobalColor::yellow;
 		break;
-
-	default: return GlobalColor::black;
-		break;
 	}
-	
+    return GlobalColor::black;
 }
 
 BrushStyle readFile::getBrushStyle(string& temp){
@@ -567,7 +557,7 @@ BrushStyle readFile::getBrushStyle(string& temp){
 	default: return BrushStyle::NoBrush; 
 		break;
 	}
-
+    return BrushStyle::SolidPattern;
 }
 
 QFont:: Weight readFile::getTextFontWeight(string& temp){
@@ -580,12 +570,9 @@ QFont:: Weight readFile::getTextFontWeight(string& temp){
 		break;
     case 'b': return QFont::Weight::Bold;
 		break;
-	
-    default: return QFont::Weight::Normal;
-		break;
 
-	}
-
+	} 
+    return QFont::Weight::Normal;
 }
 
 PenCapStyle readFile::getCapStyle(string& temp){
@@ -598,11 +585,8 @@ PenCapStyle readFile::getCapStyle(string& temp){
 		break;
     case 'r': return PenCapStyle::RoundCap;
 		break;
-
-	default: return PenCapStyle::FlatCap;
-		break;
 	}
-
+    return PenCapStyle::FlatCap;
 }
 
 PenJoinStyle readFile::getJoinStyle(string& temp){
@@ -618,12 +602,8 @@ PenJoinStyle readFile::getJoinStyle(string& temp){
 
     case 'r': return PenJoinStyle::RoundJoin;
 		break;
-
-    default: return PenJoinStyle::MiterJoin;
-		break;
-
 	}
-
+    return PenJoinStyle::MiterJoin;
 }
 
 PenStyle readFile::getPenStyle(string& temp){
@@ -638,11 +618,8 @@ PenStyle readFile::getPenStyle(string& temp){
 		break;
     case 14 : return PenStyle::DashDotLine;
 		break;
-
-    default: return PenStyle::NoPen;
-		break;
 	}
-
+    return PenStyle::NoPen;
 }
 
 AlignmentFlag readFile::getAlignment(string& temp){
@@ -660,11 +637,8 @@ AlignmentFlag readFile::getAlignment(string& temp){
 		break;
     case 'c': return AlignmentFlag::AlignCenter;
 		break;
-
-    default:return AlignmentFlag::AlignLeft;
-		break;
 	}
-
+    return AlignmentFlag::AlignLeft;
 }
 
 QFont::Style readFile::getTextFontStyle(string& temp){
@@ -677,5 +651,5 @@ QFont::Style readFile::getTextFontStyle(string& temp){
     case 'o': return QFont::StyleOblique;
 		break;
 	}
-
+    return QFont::StyleNormal;
 }
