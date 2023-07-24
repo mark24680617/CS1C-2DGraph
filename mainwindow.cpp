@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     readFile file("../shapes.txt");
     results = file.getVector();
+    update();
 
 }
 

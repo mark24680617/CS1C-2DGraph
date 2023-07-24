@@ -142,9 +142,9 @@ Shape* readFile::ReadPolyLine(fstream& inFile , int id){
 	inFile>>x4;
 	inFile.ignore();
 	inFile>>y4;
-	inFile.ignore();
+    //inFile.ignore();
 
-    //inFile.ignore(256, '\n');
+    inFile.ignore(256, '\n');
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , color);
@@ -152,6 +152,8 @@ Shape* readFile::ReadPolyLine(fstream& inFile , int id){
 
     inFile.ignore(moveP_Pen);
 	inFile>>w;
+
+    inFile.ignore(256, '\n');
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , style);
@@ -210,9 +212,9 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
     inFile>>x4;
     inFile.ignore();
     inFile>>y4;
-    inFile.ignore();
+    //inFile.ignore();
 
-    //inFile.ignore(256, '\n');
+    inFile.ignore(256, '\n');
 
 
     inFile.ignore(moveP_Pen);
@@ -637,8 +639,13 @@ PenStyle readFile::getPenStyle(string& temp){
 		break;
     case 7 : return PenStyle::DotLine;
 		break;
+
+    //fixed: should be 11 characters
     case 11 : return PenStyle::DashDotLine;
 		break;
+
+    //fixed: include dashdotdotline
+    case 14 : return PenStyle::DashDotDotLine;
 	}
     return PenStyle::NoPen;
 }
