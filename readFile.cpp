@@ -1,12 +1,12 @@
 #include "readFile.h"
+#include <QDebug>
 
 readFile::readFile(string address){
 
 	inFile.open(address);
 	int id;
 
-	while (inFile) {
-		
+    while (inFile) {
 		string typeStr;
 
         inFile.ignore(moveP_ID);
@@ -27,9 +27,10 @@ readFile::readFile(string address){
 			break;
 		
 		case 'P': 
-                if(typeStr[5]=='l'){
+                if(typeStr[4]=='l'){
                     list.push_back(ReadPolyLine(inFile , id));
-                } else if  (typeStr[5]=='g'){
+                } else {
+                    qDebug()<<"Test\n";
                     list.push_back(ReadPolygon(inFile , id));
                 }
 			break;
@@ -51,6 +52,8 @@ readFile::readFile(string address){
             */
 		}
 	}
+
+    inFile.close();
 }
 
 Shape* readFile::ReadLine(fstream& inFile , int id){
@@ -67,13 +70,15 @@ Shape* readFile::ReadLine(fstream& inFile , int id){
 
 
     inFile.ignore(moveP_Dimentions);
-	inFile>>x;
-	inFile.ignore();
-	inFile>>y;
-	inFile.ignore();
-	inFile>>x2;
-	inFile.ignore();
+    inFile>>x;
+    inFile.ignore();
+    inFile>>y;
+    inFile.ignore();
+    inFile>>x2;
+    inFile.ignore();
 	inFile>>y2;
+
+
 
     inFile.ignore(256, '\n');
 
@@ -104,6 +109,9 @@ Shape* readFile::ReadLine(fstream& inFile , int id){
     line->set_points(first , second);
     line->set_pen(getColor(color) , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
     line->set_shapeID(id);
+
+    qDebug()<<x << y<<x2<<y2<<w<<endl;
+
 	return line;
 }
 
@@ -136,7 +144,7 @@ Shape* readFile::ReadPolyLine(fstream& inFile , int id){
 	inFile>>y4;
 	inFile.ignore();
 
-    inFile.ignore(256, '\n');
+    //inFile.ignore(256, '\n');
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , color);
@@ -170,6 +178,7 @@ Shape* readFile::ReadPolyLine(fstream& inFile , int id){
 	result->set_shapeID(id);
     result->set_pen(getColor(color) , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
 
+    qDebug()<<x1 << y1<<x2<<y2<<x3<<y3<<x4<<y4<<w;
 	return result;
 }
 
@@ -203,7 +212,7 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
     inFile>>y4;
     inFile.ignore();
 
-    inFile.ignore(256, '\n');
+    //inFile.ignore(256, '\n');
 
 
     inFile.ignore(moveP_Pen);
@@ -223,7 +232,7 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
     inFile.ignore(moveP_PenJoinStyle);
 	getline(inFile , Jstyle);
 
-    inFile.ignore(moveP_Pen);
+    inFile.ignore(moveP_Brush);
 	getline(inFile , bStyle);
 
     inFile.ignore(moveP_Brush);
@@ -243,6 +252,7 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
     result->set_brush(getColor(bColor) , getBrushStyle(bStyle));
     result->set_pen(getColor(color) , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
 
+    qDebug()<<x1 << y1<<x2<<y2<<w<<endl;
 	return result;
 }
 /*

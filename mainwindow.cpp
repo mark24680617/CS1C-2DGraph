@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    update();
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)
@@ -77,10 +78,12 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
     QMainWindow::paintEvent(event);
     QPainter painter(this);
-    readFile file("shapes.txt");
+    readFile file("../shapes.txt");
     vector<Shape*> results;
     results = file.getVector();
     for(Shape* a : results){
+        qDebug()<<a->getID()<<endl;
+        qDebug()<<a->perimeter()<<endl;
         a->draw(painter , 0 , 0);
     }
 }
