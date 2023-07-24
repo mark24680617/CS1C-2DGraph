@@ -23,7 +23,7 @@ public:
     enum class shapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Text};
 
     Shape (QPaintDevice* device = nullptr, int id = -1, shapeType shape = shapeType::NoShape)
-	 : id(id), shape(shape)
+        : id(id), shape(shape)
    	 {
        		 pen = Qt::SolidLine;
         	 brush = Qt::NoBrush;
@@ -33,7 +33,10 @@ public:
 	//	id(shapeId), shape(shape), qpainter(qpaint) {} // I added implementation -Daniel
 	virtual ~Shape(){};
 
-	
+    int getID() const
+    {
+             return id;
+         }
 
 	shapeType get_shape() const
 	{
