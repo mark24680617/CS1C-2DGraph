@@ -80,6 +80,10 @@ public:
 		id = inId; // I added implementation -Daniel
 	}
 
+    void set_qPainter(QPainter qpainter){
+        this->qpainter = &qpainter;
+    }
+
 	void default_style()
 	{
 		pen = Qt::SolidLine; // I added implementation -Daniel

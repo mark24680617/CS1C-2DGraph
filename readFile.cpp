@@ -637,7 +637,7 @@ PenStyle readFile::getPenStyle(string& temp){
 		break;
     case 7 : return PenStyle::DotLine;
 		break;
-    case 14 : return PenStyle::DashDotLine;
+    case 11 : return PenStyle::DashDotLine;
 		break;
 	}
     return PenStyle::NoPen;
