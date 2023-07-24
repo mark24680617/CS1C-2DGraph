@@ -30,7 +30,6 @@ readFile::readFile(string address){
                 if(typeStr[4]=='l'){
                     list.push_back(ReadPolyLine(inFile , id));
                 } else {
-                    qDebug()<<"Test\n";
                     list.push_back(ReadPolygon(inFile , id));
                 }
 			break;
@@ -77,10 +76,7 @@ Shape* readFile::ReadLine(fstream& inFile , int id){
     inFile>>x2;
     inFile.ignore();
 	inFile>>y2;
-
-
-
-    inFile.ignore(256, '\n');
+    inFile.ignore();
 
 	QPoint first(x , y);
 	QPoint second(x2 , y2);
@@ -281,12 +277,15 @@ Shape* readFile::ReadRectangle(fstream& inFile , int id){
 	inFile>>x2;
 	inFile.ignore();
 	inFile>>y2;
+    inFile.ignore();
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , color);
 
     inFile.ignore(moveP_Pen);
 	inFile>>w;
+
+    inFile.ignore();
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , style);
@@ -338,10 +337,11 @@ Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
     inFile.ignore(moveP_Pen);
 	getline(inFile , color);
 
-	QColor lineColor (getColor(color));
 
     inFile.ignore(moveP_Pen);
 	inFile>>w;
+
+    inFile.ignore();
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , style);
@@ -396,6 +396,8 @@ Shape* readFile::ReadSquare(fstream& inFile , int id){
     inFile.ignore(moveP_Pen);
 	inFile>>w;
 
+    inFile.ignore();
+
     inFile.ignore(moveP_Pen);
 	getline(inFile , style);
 
@@ -412,7 +414,6 @@ Shape* readFile::ReadSquare(fstream& inFile , int id){
 	getline(inFile , bColor);
 
 	int length = a-c;
-
 
 	QPoint topLeft(a , b);
 	QPoint buttomRight (c , b-length);
@@ -446,12 +447,15 @@ Shape* readFile::ReadEcllipce(fstream& inFile , int id){
 	inFile>>c;
 	inFile.ignore();
 	inFile>>d;
+    inFile.ignore();
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , color);
 
     inFile.ignore(moveP_Pen);
 	inFile>>w;
+
+    inFile.ignore();
 
     inFile.ignore(moveP_Pen);
 	getline(inFile , style);
@@ -499,6 +503,7 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 	inFile>>c;
 	inFile.ignore();
 	inFile>>d;
+    inFile.ignore();
 
     inFile.ignore(12);
 	getline(inFile,textString);
@@ -511,6 +516,8 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 
     inFile.ignore(15);
 	inFile>>pointSize;
+
+    inFile.ignore();
 
     inFile.ignore(16);
 	getline(inFile , fontFamily);
@@ -527,10 +534,16 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
     inFile.ignore(17);
 	getline(inFile , fontWeight);
 
+    QString qString = QString::fromStdString(fontFamily);
+    QString qString2 = QString::fromStdString(textString);
+
     Text *result = new Text;
     result->set_shapeID(id);
-
-
+    result->set_text_color(getColor(color));
+    result->set_text_alignment(getAlignment(aligne));
+    result->set_text_point_size(pointSize);
+    result->set_text_font(qString , getTextFontStyle(fontStyle), getTextFontWeight(fontWeight) );
+    result->set_text(qString2);
     return result;
 }
 */
@@ -646,6 +659,7 @@ PenStyle readFile::getPenStyle(string& temp){
 
     //fixed: include dashdotdotline
     case 14 : return PenStyle::DashDotDotLine;
+        break;
 	}
     return PenStyle::NoPen;
 }

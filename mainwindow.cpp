@@ -82,10 +82,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
     QMainWindow::paintEvent(event);
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    //readFile file("../shapes.txt");
+    readFile file("../shapes.txt");
 
 
-    //results = file.getVector();
+    results = file.getVector();
     for(Shape* a : results){
         qDebug()<<a->getID()<<endl;
         qDebug()<<a->perimeter()<<endl;
