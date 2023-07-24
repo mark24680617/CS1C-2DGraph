@@ -26,6 +26,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    vector<Shape*> results;
 
 };
 #endif // MAINWINDOW_H
