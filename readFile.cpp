@@ -548,7 +548,7 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 }
 */
 
-GlobalColor readFile::getColor(string& temp){
+GlobalColor getColor(string& temp){
     
     char temp2=tolower(temp[0]);
 
@@ -580,7 +580,7 @@ GlobalColor readFile::getColor(string& temp){
     return GlobalColor::black;
 }
 
-BrushStyle readFile::getBrushStyle(string& temp){
+BrushStyle getBrushStyle(string& temp){
 
     switch (tolower(temp[0]))
 	{
@@ -596,7 +596,7 @@ BrushStyle readFile::getBrushStyle(string& temp){
     return BrushStyle::SolidPattern;
 }
 
-QFont:: Weight readFile::getTextFontWeight(string& temp){
+QFont:: Weight getTextFontWeight(string& temp){
 
     switch (temp[0])
 	{
@@ -611,7 +611,7 @@ QFont:: Weight readFile::getTextFontWeight(string& temp){
     return QFont::Weight::Normal;
 }
 
-PenCapStyle readFile::getCapStyle(string& temp){
+PenCapStyle getCapStyle(string& temp){
 
     switch (tolower(temp[0]))
 	{
@@ -625,7 +625,7 @@ PenCapStyle readFile::getCapStyle(string& temp){
     return PenCapStyle::FlatCap;
 }
 
-PenJoinStyle readFile::getJoinStyle(string& temp){
+PenJoinStyle getJoinStyle(string& temp){
 
 
     switch (tolower(temp[0]))
@@ -642,7 +642,7 @@ PenJoinStyle readFile::getJoinStyle(string& temp){
     return PenJoinStyle::MiterJoin;
 }
 
-PenStyle readFile::getPenStyle(string& temp){
+PenStyle getPenStyle(string& temp){
 
     switch (temp.length())
 	{
@@ -664,7 +664,7 @@ PenStyle readFile::getPenStyle(string& temp){
     return PenStyle::NoPen;
 }
 
-AlignmentFlag readFile::getAlignment(string& temp){
+AlignmentFlag getAlignment(string& temp){
 
 
     switch (tolower(temp[5]))
@@ -683,7 +683,7 @@ AlignmentFlag readFile::getAlignment(string& temp){
     return AlignmentFlag::AlignLeft;
 }
 
-QFont::Style readFile::getTextFontStyle(string& temp){
+QFont::Style getTextFontStyle(string& temp){
     switch (tolower(temp[5]))
 	{
     case 'n': return QFont::StyleNormal;

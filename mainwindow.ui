@@ -211,7 +211,7 @@
        <string>Dimention</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="lineEdit_D">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -221,7 +221,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
+     <widget class="QLineEdit" name="lineEdit_Pcolor">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -231,7 +231,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="lineEdit_width">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -241,7 +241,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_5">
+     <widget class="QLineEdit" name="lineEdit_penStyle">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -251,7 +251,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_6">
+     <widget class="QLineEdit" name="lineEdit_cap">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -261,7 +261,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_7">
+     <widget class="QLineEdit" name="lineEdit_Join">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -271,7 +271,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_9">
+     <widget class="QLineEdit" name="lineEdit_bStyle">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -281,7 +281,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_10">
+     <widget class="QLineEdit" name="lineEdit_bColor">
       <property name="geometry">
        <rect>
         <x>90</x>
