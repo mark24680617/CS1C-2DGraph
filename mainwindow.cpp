@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     canvas1 = new canvas(this);
+    canvas1->setGeometry(10, 60, 1000, 1000);
     canvas1->show();
 
     readFile file("../shapes.txt");

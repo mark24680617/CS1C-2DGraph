@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1317</width>
+    <height>642</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>1210</x>
       <y>20</y>
       <width>50</width>
       <height>30</height>
@@ -43,9 +43,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>100</x>
       <y>10</y>
-      <width>211</width>
+      <width>221</width>
       <height>41</height>
      </rect>
     </property>
@@ -75,9 +75,9 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>1150</x>
       <y>20</y>
-      <width>50</width>
+      <width>51</width>
       <height>30</height>
      </rect>
     </property>
@@ -101,7 +101,7 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>1170</x>
       <y>70</y>
       <width>80</width>
       <height>23</height>
@@ -114,7 +114,7 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>1170</x>
       <y>110</y>
       <width>80</width>
       <height>23</height>
@@ -127,7 +127,7 @@
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>1170</x>
       <y>150</y>
       <width>80</width>
       <height>23</height>
@@ -137,13 +137,13 @@
      <string>add polygon</string>
     </property>
    </widget>
-   <widget class="canvas" name="widget" native="true">
+   <widget class="QWidget" name="canvas" native="true">
     <property name="geometry">
      <rect>
-      <x>19</x>
-      <y>69</y>
-      <width>641</width>
-      <height>471</height>
+      <x>10</x>
+      <y>60</y>
+      <width>841</width>
+      <height>461</height>
      </rect>
     </property>
    </widget>
@@ -153,21 +153,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1317</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>canvas</class>
-   <extends>QWidget</extends>
-   <header>canvas.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="Resources.qrc"/>
  </resources>
