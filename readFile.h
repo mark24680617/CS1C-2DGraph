@@ -36,6 +36,7 @@ class readFile{
     vector<Shape*> list;
 
     readFile(string);
+    ~readFile() {};
 
 	// all of these methods can be protected
 

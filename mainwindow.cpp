@@ -82,10 +82,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
     QMainWindow::paintEvent(event);
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    //readFile file("../shapes.txt");
+    readFile file("../shapes.txt");
 
 
-    //results = file.getVector();
+    results = file.getVector();
     for(Shape* a : results){
         qDebug()<<a->getID()<<endl;
         qDebug()<<a->perimeter()<<endl;
@@ -121,5 +121,23 @@ void MainWindow::on_pushButton_2_clicked()
     info.setModal(true);
     hide();
     info.exec();
+}
+
+
+void MainWindow::on_pushButton_3_clicked()  // line
+{
+
+}
+
+
+void MainWindow::on_pushButton_4_clicked()  // polyline
+{
+
+}
+
+
+void MainWindow::on_pushButton_5_clicked()  // polygon
+{
+
 }
 
