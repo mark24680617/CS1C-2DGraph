@@ -123,3 +123,21 @@ void MainWindow::on_pushButton_2_clicked()
     info.exec();
 }
 
+
+void MainWindow::on_pushButton_3_clicked()  // line
+{
+
+}
+
+
+void MainWindow::on_pushButton_4_clicked()  // polyline
+{
+
+}
+
+
+void MainWindow::on_pushButton_5_clicked()  // polygon
+{
+
+}
+
