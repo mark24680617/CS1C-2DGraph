@@ -226,12 +226,14 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
     case 2:
         results.push_back(getPolygon(id , points , color , penW , penStyle , penCap , penJoin, bColor , bStyle));
         break;
+        /*
     case 3:
         results.push_back(getEllipse(id, points, color, penQ, penStyle, penCap, penJoin, bColor, bStyle));
         break;
     case 4:
         results.push_back(getRectangle(id, points, color, penQ, penStyle, penCap, penJoin, bColor, bStyle));
         break;
+    */
     }
     update();
 }
