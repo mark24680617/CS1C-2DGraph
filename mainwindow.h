@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "vector.h"
+#include "shape.h"
+#include "canvas.h"
 #include "line.h"
 
 QT_BEGIN_NAMESPACE
@@ -17,7 +20,7 @@ public:
     ~MainWindow();
 
 protected:
-    void paintEvent(QPaintEvent *event) override;
+    //void paintEvent(QPaintEvent *event) override;
 
 private slots:
     void on_pushButton_clicked();
@@ -33,6 +36,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     vector<Shape*> results;
+    canvas* canvas1;
 
 };
 #endif // MAINWINDOW_H
