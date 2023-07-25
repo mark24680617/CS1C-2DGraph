@@ -28,7 +28,7 @@ public:
      * @param translate_x point x
      * @param translate_y point y
      */
-    //void draw(const int translate_x = 0, const int translate_y = 0) override;
+    void draw(QPainter& painter, const int translate_x = 0, const int translate_y = 0) override;
 
     /**
      * @brief get perimeter of Ellipse

@@ -10,6 +10,7 @@
 #include "polyline.h"
 #include "readFile.h"
 
+
 vector<int> stringToInt(string number){
     int currentNum = 0;
         vector<int> list;
@@ -93,6 +94,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     canvas1->setShapes(results);
 
+    update();
 }
 /*
 void MainWindow::paintEvent(QPaintEvent *event)
@@ -216,7 +218,6 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
     vector<int> dTion=stringToInt(dimentions);
     vector<QPoint> points=getPoint(dTion);
 
-
     switch (type) {
     case 0:
         results.push_back(getLine(id , points , color , penW , penStyle , penCap , penJoin));
@@ -227,11 +228,21 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
     case 2:
         results.push_back(getPolygon(id , points , color , penW , penStyle , penCap , penJoin, bColor , bStyle));
         break;
+//<<<<<<< HEAD
 
+//=======
+        /*
     case 3:
+        results.push_back(getEllipse(id, points, color, penQ, penStyle, penCap, penJoin, bColor, bStyle));
         break;
+    case 4:
+        results.push_back(getRectangle(id, points, color, penQ, penStyle, penCap, penJoin, bColor, bStyle));
+        break;
+    */
+//>>>>>>> 8731232d503cf3f2eb5828b0d111b81a9c981ae8
     }
 
-    update();
+    canvas1->setShapes(results);
+    canvas1->update();
 }
 

@@ -33,19 +33,20 @@ readFile::readFile(string address){
                     list.push_back(ReadPolygon(inFile , id));
                 }
 			break;
-        /*
+
         case 'R': list.push_back(ReadRectangle(inFile , id));
 			break;		
 
-		case 'S': list.push_back(ReadRectangle(inFile , id));
+        case 'S': list.push_back(ReadSquare(inFile , id));
 			break;
+
 
 		case 'E': list.push_back(ReadEcllipce(inFile , id));
 			break;
 
-		case 'C': list.push_back(ReadCircle(inFile , id));
-			break;
-
+        case 'C': list.push_back(ReadCircle(inFile , id)); //this will lead the program to crash
+            break;
+/*
 		case 'T': list.push_back(ReadText(inFile , id));
 			break;
             */
@@ -253,7 +254,7 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
     //qDebug()<<x1 << y1<<x2<<y2<<w<<endl;
 	return result;
 }
-/*
+
 Shape* readFile::ReadRectangle(fstream& inFile , int id){
 
 	int x;
@@ -313,8 +314,8 @@ Shape* readFile::ReadRectangle(fstream& inFile , int id){
 	
 	return result;
 }
-*/
-/*
+
+
 Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
 
 	int a , b, c;
@@ -360,7 +361,7 @@ Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
 
 	QRect rect(a,b,c,c);
 	
-    Ellipse *result;
+    Ellipse *result = new Ellipse;
 	result->set_shapeID(id);
 	result->set_rect(rect);
     result->set_brush(getColor(bColor) , getBrushStyle(bStyle));
@@ -369,8 +370,8 @@ Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
 	return result;
 	
 }
-*/
-/*
+
+
 Shape* readFile::ReadSquare(fstream& inFile , int id){
 
 	int a,b,c;
@@ -426,8 +427,8 @@ Shape* readFile::ReadSquare(fstream& inFile , int id){
 
 	return result;
 }
-*/
-/*
+
+
 Shape* readFile::ReadEcllipce(fstream& inFile , int id){
 
 	int a ,b, c,d;
@@ -482,7 +483,7 @@ Shape* readFile::ReadEcllipce(fstream& inFile , int id){
 	
 	return result;
 }
-*/
+
 /*
 Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 
