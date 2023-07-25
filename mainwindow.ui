@@ -118,7 +118,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Add">
      <attribute name="title">
@@ -426,7 +426,7 @@
        <string>ID</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_8">
+     <widget class="QLineEdit" name="lineEdit_textID">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -449,7 +449,7 @@
        <string>Dimention</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_11">
+     <widget class="QLineEdit" name="lineEdit_textD">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -747,7 +747,7 @@
      <x>0</x>
      <y>0</y>
      <width>1482</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

@@ -216,6 +216,7 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
     vector<int> dTion=stringToInt(dimentions);
     vector<QPoint> points=getPoint(dTion);
 
+
     switch (type) {
     case 0:
         results.push_back(getLine(id , points , color , penW , penStyle , penCap , penJoin));
@@ -226,8 +227,11 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
     case 2:
         results.push_back(getPolygon(id , points , color , penW , penStyle , penCap , penJoin, bColor , bStyle));
         break;
+
+    case 3:
+        break;
     }
+
     update();
 }
-
 

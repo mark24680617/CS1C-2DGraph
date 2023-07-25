@@ -106,7 +106,7 @@ Shape* readFile::ReadLine(fstream& inFile , int id){
     line->set_pen(getColor(color) , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
     line->set_shapeID(id);
 
-    qDebug()<<x << y<<x2<<y2<<w<<endl;
+    //qDebug()<<x << y<<x2<<y2<<w<<endl;
 
 	return line;
 }
@@ -176,7 +176,7 @@ Shape* readFile::ReadPolyLine(fstream& inFile , int id){
 	result->set_shapeID(id);
     result->set_pen(getColor(color) , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
 
-    qDebug()<<x1 << y1<<x2<<y2<<x3<<y3<<x4<<y4<<w;
+    //qDebug()<<x1 << y1<<x2<<y2<<x3<<y3<<x4<<y4<<w;
 	return result;
 }
 
@@ -250,7 +250,7 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
     result->set_brush(getColor(bColor) , getBrushStyle(bStyle));
     result->set_pen(getColor(color) , w , getPenStyle(style) , getCapStyle(capStyle) , getJoinStyle(Jstyle) );
 
-    qDebug()<<x1 << y1<<x2<<y2<<w<<endl;
+    //qDebug()<<x1 << y1<<x2<<y2<<w<<endl;
 	return result;
 }
 /*
