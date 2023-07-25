@@ -15,15 +15,19 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    canvas1 = new canvas(this);
+    canvas1->show();
+
     readFile file("../shapes.txt");
     results = file.getVector();
-    update();
+
+    canvas1->setShapes(results);
 
 }
-
+/*
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-    /*
+
     QMainWindow::paintEvent(event); // Call the base class paintEvent
 
     QPainter painter(this);
@@ -78,7 +82,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
     polyline.set_pen(Qt::green, 2, Qt::SolidLine, Qt::FlatCap, Qt::MiterJoin);
     polyline.draw(painter, 0, 0);
 */
-
+/*
     QMainWindow::paintEvent(event);
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -93,7 +97,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
         a->draw(painter , 0 , 0);
     }
 }
-
+*/
 
 
 MainWindow::~MainWindow()
