@@ -20,7 +20,7 @@ public:
     // What: Sets the points for the line
     // Pre-Condition: None
     // Post-Condition: arributtes point_begin and point_end get set with the passed in parameters from the vector
-    void set_points(const vector<QPoint>& points) override;
+    void set_points(const vector<QPoint>& pointsList) override;
 
     // What: Sets the points for the line
     // Pre-Condition: None

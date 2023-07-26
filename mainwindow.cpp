@@ -386,6 +386,10 @@ void MainWindow::on_pushButton_6_clicked() //Move button clicked
 
             //Ensure the text box was filled
             if (pointCoords.size() != 0) {
+                if (selectedShape->get_shape() == Shape::shapeType::Ellipse) {
+
+                }
+
                 points = getPoint(pointCoords);
                 selectedShape->set_points(points);
             }

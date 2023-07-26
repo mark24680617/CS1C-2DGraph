@@ -17,6 +17,8 @@ public:
      */
     ~Ellipse() override {}
 
+    void set_points(const vector<QPoint>& pointsList) override;
+
     /**
      * @brief set points for shape
      * @param rect QRectangle to identify points
