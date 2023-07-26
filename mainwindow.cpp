@@ -323,3 +323,39 @@ void MainWindow::on_pushButton_5_clicked()  // remove button
     canvas1->setShapes(results);
 }
 
+
+void MainWindow::on_pushButton_4_clicked() { // add text {
+
+    Text *newText = new Text;
+
+     int id = ui->lineEdit_textID->text().toInt();
+    newText->set_shapeID(id);
+
+    string dimentions = ui->lineEdit_textD->text().toStdString();
+    vector<int> dTion=stringToInt(dimentions);
+    vector<QPoint> points=getPoint(dTion);
+    newText->set_points(points[0] , points[1]);
+
+    QString Qtext = ui->lineEdit_TEXT->text() ;
+    newText->set_text(Qtext);
+
+    string color = ui->lineEdit_textColor->text().toStdString();
+    newText->set_text_color(getColor(color));
+
+    string alignment = ui->lineEdit_alignment->text().toStdString();
+    newText->set_text_alignment(getAlignment(alignment));
+
+    int w = ui->lineEdit_textSize->text().toInt();
+    newText->set_text_point_size(w);
+
+    QString fontFamily = ui->lineEdit_fontFamily->text();
+    string fontStyle = ui->lineEdit_fontStyle->text().toStdString();
+    string fontWeight = ui->lineEdit_fontWeight->text().toStdString();
+
+    newText->set_text_font(fontFamily , getTextFontStyle(fontStyle), getTextFontWeight(fontWeight));
+
+    results.push_back(newText);
+
+    canvas1->setShapes(results);
+}
+

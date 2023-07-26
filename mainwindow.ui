@@ -118,7 +118,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Add">
      <attribute name="title">
@@ -492,7 +492,7 @@
        <string>text</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_12">
+     <widget class="QLineEdit" name="lineEdit_TEXT">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -528,7 +528,7 @@
        <string>color</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_14">
+     <widget class="QLineEdit" name="lineEdit_textColor">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -538,7 +538,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_15">
+     <widget class="QLineEdit" name="lineEdit_alignment">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -561,7 +561,7 @@
        <string>Alignment</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_16">
+     <widget class="QLineEdit" name="lineEdit_textSize">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -584,7 +584,7 @@
        <string>point size</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_17">
+     <widget class="QLineEdit" name="lineEdit_fontFamily">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -607,7 +607,7 @@
        <string>font family</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_18">
+     <widget class="QLineEdit" name="lineEdit_fontStyle">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -630,7 +630,7 @@
        <string>font style</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_19">
+     <widget class="QLineEdit" name="lineEdit_fontWeight">
       <property name="geometry">
        <rect>
         <x>90</x>
