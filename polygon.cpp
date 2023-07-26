@@ -2,6 +2,14 @@
 #include "polygon.h"
 #include <cmath>
 
+void polygon::set_points(const vector<QPoint>& pointsList)
+{
+    for (int i = 0; i < points.size() && i < pointsList.size(); ++i) {
+        points[i] = pointsList[i];
+    }
+
+}
+
 void polygon::set_point(const QPoint& point)
 {
     points.push_back(point);

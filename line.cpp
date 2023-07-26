@@ -1,5 +1,9 @@
 #include "line.h"
 
+void Line::set_points(const vector<QPoint>& points) {
+    this->point_begin = points[0];
+    this->point_end = points[1];
+}
 
 void Line::set_points(const QPoint& point_begin, const QPoint& point_end)
 {

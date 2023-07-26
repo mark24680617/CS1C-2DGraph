@@ -18,7 +18,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void updateRemovelist();
+    void updateLists();
 
 
 
@@ -39,6 +39,12 @@ private slots:
     void on_save_button_clicked();
 
     void setLoggedIn();
+
+    void on_pushButton_6_clicked();
+
+    void on_comboBox_move_activated(int index);
+
+    void on_comboBox_remove_activated(int index);
 
 private:
     Ui::MainWindow *ui;

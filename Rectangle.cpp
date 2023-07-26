@@ -1,4 +1,11 @@
 #include "Rectangle.h"
+
+void Rectangle::set_points(const vector<QPoint>& pointsList)
+{
+    this->top_left = pointsList[0];
+    this->bottom_right = pointsList[1];
+}
+
 void Rectangle::set_points(const QPoint& top_left, const QPoint& bottom_right)
 {
     this->top_left = top_left;

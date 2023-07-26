@@ -17,6 +17,8 @@ public:
      */
     ~Rectangle() override {}
 
+    void set_points(const vector<QPoint>& pointsList) override;
+
     /**
      * @brief set points for shape
      * @param top_left top left point

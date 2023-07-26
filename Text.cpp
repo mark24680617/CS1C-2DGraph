@@ -1,5 +1,12 @@
 #include "Text.h"
 
+void Text::set_points(const vector<QPoint>& pointsList)
+{
+    this->point1 = pointsList[0];
+    this->point2 = pointsList[1];
+
+}
+
 void Text::set_points(const QPoint& top_left, const QPoint& bottom_right) {
     // Set the bounding rectangle using the provided points
     boundingRect = QRect(top_left, bottom_right);

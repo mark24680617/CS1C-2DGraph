@@ -15,6 +15,8 @@ public:
     // Post-Condition: The object gets destructed and put into an invalid state
     ~polygon() override{ }
 
+    void set_points(const vector<QPoint>& pointsList) override;
+
     // What: Sets the points
     // Pre-Condition: None
     // Post-Condition: pushes back the passed in point into the points vector
