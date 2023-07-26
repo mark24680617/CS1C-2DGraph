@@ -541,8 +541,11 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 
     QString qString = QString::fromStdString(fontFamily);
     QString qString2 = QString::fromStdString(textString);
+    QPoint point1(a,b);
+    QPoint point2(c,d);
 
     Text *result = new Text;
+    result->set_points(point1,point2);
     result->set_shapeID(id);
     result->set_text_color(getColor(color));
     result->set_text_alignment(getAlignment(aligne));
