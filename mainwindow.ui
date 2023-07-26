@@ -148,6 +148,26 @@
         <string>polygon</string>
        </property>
       </item>
+      <item>
+       <property name="text">
+        <string>rectangle</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ellipse</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Square</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Circle</string>
+       </property>
+      </item>
      </widget>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
@@ -472,7 +492,7 @@
        <string>text</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_12">
+     <widget class="QLineEdit" name="lineEdit_TEXT">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -508,7 +528,7 @@
        <string>color</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_14">
+     <widget class="QLineEdit" name="lineEdit_textColor">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -518,7 +538,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_15">
+     <widget class="QLineEdit" name="lineEdit_alignment">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -541,7 +561,7 @@
        <string>Alignment</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_16">
+     <widget class="QLineEdit" name="lineEdit_textSize">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -564,7 +584,7 @@
        <string>point size</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_17">
+     <widget class="QLineEdit" name="lineEdit_fontFamily">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -587,7 +607,7 @@
        <string>font family</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_18">
+     <widget class="QLineEdit" name="lineEdit_fontStyle">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -610,7 +630,7 @@
        <string>font style</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_19">
+     <widget class="QLineEdit" name="lineEdit_fontWeight">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -654,7 +674,7 @@
      <widget class="QLabel" name="label_18">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>40</y>
         <width>51</width>
         <height>31</height>
@@ -664,13 +684,13 @@
        <string>ID</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_13">
+     <widget class="QComboBox" name="comboBox_remove">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>68</x>
         <y>40</y>
-        <width>131</width>
-        <height>23</height>
+        <width>101</width>
+        <height>22</height>
        </rect>
       </property>
      </widget>
