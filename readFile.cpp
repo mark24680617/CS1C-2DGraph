@@ -44,12 +44,12 @@ readFile::readFile(string address){
 		case 'E': list.push_back(ReadEcllipce(inFile , id));
 			break;
 
-        case 'C': list.push_back(ReadCircle(inFile , id)); //this will lead the program to crash
+        case 'C': list.push_back(ReadCircle(inFile , id));
             break;
-/*
+
 		case 'T': list.push_back(ReadText(inFile , id));
 			break;
-            */
+
 		}
 	}
 
@@ -232,10 +232,10 @@ Shape* readFile::ReadPolygon(fstream& inFile , int id){
 	getline(inFile , Jstyle);
 
     inFile.ignore(moveP_Brush);
-	getline(inFile , bStyle);
+    getline(inFile , bColor);
 
     inFile.ignore(moveP_Brush);
-	getline(inFile , bColor);
+	getline(inFile , bStyle);
 
 	QPoint first(x1 , y1);
 	QPoint second(x2 , y2);
@@ -354,10 +354,11 @@ Shape* readFile::ReadCircle(fstream& inFile , int id){  // have no idea
 	getline(inFile , Jstyle);
 
     inFile.ignore(moveP_Brush);
-	getline(inFile , bStyle);
+    getline(inFile , bColor);
 
     inFile.ignore(moveP_Brush);
-	getline(inFile , bColor);
+	getline(inFile , bStyle);
+
 
 	QRect rect(a,b,c,c);
 	
@@ -409,10 +410,12 @@ Shape* readFile::ReadSquare(fstream& inFile , int id){
 	getline(inFile , Jstyle);
 
     inFile.ignore(moveP_Brush);
-	getline(inFile , bStyle);
+    getline(inFile , bColor);
 
     inFile.ignore(moveP_Brush);
-	getline(inFile , bColor);
+	getline(inFile , bStyle);
+
+
 
 	int length = a-c;
 
@@ -468,10 +471,11 @@ Shape* readFile::ReadEcllipce(fstream& inFile , int id){
 	getline(inFile , Jstyle);
 
     inFile.ignore(moveP_Brush);
-	getline(inFile , bStyle);
+    getline(inFile , bColor);
 
     inFile.ignore(moveP_Brush);
-	getline(inFile , bColor);
+	getline(inFile , bStyle);
+
 
 	QRect rect(a,b,c,d);
 
@@ -484,7 +488,7 @@ Shape* readFile::ReadEcllipce(fstream& inFile , int id){
 	return result;
 }
 
-/*
+
 Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 
 	int a ,b, c,d;
@@ -528,11 +532,11 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
 	getline(inFile , fontStyle);
 
 
-    inFile.ignore(15);
-	getline(inFile , fontFamily);
+    //inFile.ignore(15);
+    //getline(inFile , fontFamily);
 
 
-    inFile.ignore(17);
+    inFile.ignore(16);
 	getline(inFile , fontWeight);
 
     QString qString = QString::fromStdString(fontFamily);
@@ -547,7 +551,7 @@ Shape* readFile::ReadText(fstream& inFile , int id){  // need more work
     result->set_text(qString2);
     return result;
 }
-*/
+
 
 GlobalColor getColor(string& temp){
     

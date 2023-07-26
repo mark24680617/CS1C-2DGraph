@@ -94,7 +94,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     canvas1->setShapes(results);
 
-    update();
+    canvas1->setShapes(results);
 }
 /*
 void MainWindow::paintEvent(QPaintEvent *event)
@@ -243,6 +243,6 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
     }
 
     canvas1->setShapes(results);
-    canvas1->update();
+
 }
 
