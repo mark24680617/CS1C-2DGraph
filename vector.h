@@ -50,6 +50,33 @@ public:
         return *this;  // return a self-reference
     }
 
+    vector(vector&& src) : size_v{src.size_v}, elem{src.elem}, space{src.space} // move constructor
+    {
+        src.size_v = 0;
+        src.elem = nullptr;
+        src.space = 0;
+    }
+
+    vector& operator=(vector&& src)
+    {
+        if (this == &src) // Check for self-assignment
+        {
+            return *this;
+        }
+
+        delete[] elem; // Deallocate existing memory
+
+        size_v = src.size_v;
+        elem = src.elem;
+        space = src.space;
+
+        src.size_v = 0;
+        src.elem = nullptr;
+        src.space = 0;
+
+        return *this;
+    }
+
     ~vector() {
         delete[] elem; // destructor
     }
