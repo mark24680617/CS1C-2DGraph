@@ -118,7 +118,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Add">
      <attribute name="title">
@@ -146,6 +146,26 @@
       <item>
        <property name="text">
         <string>polygon</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rectangle</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ellipse</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Square</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Circle</string>
        </property>
       </item>
      </widget>
