@@ -22,9 +22,18 @@ int const moveP_PenCapStyle=13;
 int const moveP_PenJoinStyle=14;
 int const moveP_Brush=12;
 
-
 using namespace std;
 using namespace Qt;
+
+// these methods are the swtich stuctures
+GlobalColor getColor(string&);
+PenStyle getPenStyle(string&);
+PenCapStyle getCapStyle(string&);
+PenJoinStyle getJoinStyle(string&);
+BrushStyle getBrushStyle(string&);
+QFont::Weight	getTextFontWeight(string&);
+AlignmentFlag getAlignment(string&);
+QFont::Style getTextFontStyle(string&);
 
 
 class readFile{
@@ -51,15 +60,7 @@ class readFile{
     Shape* ReadText(fstream& , int);
 
 
-	// these methods are the swtich stuctures
-	GlobalColor getColor(string&);
-	PenStyle getPenStyle(string&);
-	PenCapStyle getCapStyle(string&);
-	PenJoinStyle getJoinStyle(string&);
-	BrushStyle getBrushStyle(string&);
-    QFont::Weight	getTextFontWeight(string&);
-	AlignmentFlag getAlignment(string&);
-    QFont::Style getTextFontStyle(string&);
+
 
     vector<Shape*> getVector();
 

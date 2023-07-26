@@ -18,6 +18,13 @@ public:
     ~Text() override {}
 
     /**
+     * @brief Set the top-left and bottom-right points of the text's bounding rectangle.
+     * @param top_left The top-left point of the bounding rectangle.
+     * @param bottom_right The bottom-right point of the bounding rectangle.
+     */
+    void set_points(const QPoint& top_left, const QPoint& bottom_right);
+
+    /**
      * @brief set text string
      * @param text QString
      */
@@ -54,7 +61,7 @@ public:
      * @param translate_x xPosition
      * @param translate_y yPosition
      */
-    //void draw(const int translate_x, const int translate_y) override;
+    void draw(QPainter& painter, const int translate_x, const int translate_y) override;
 
     /**
      * @brief perimeter for text
@@ -70,12 +77,16 @@ public:
 
 private:
     QString text;
+    QRect boundingRect; // The bounding rectangle of the text
     Qt::GlobalColor textColor;
     Qt::AlignmentFlag textAlignment;
     int textPointSize;
     QString textFontFamily;
     QFont::Style textFontStyle;
     int textFontWeight;
+
+    QPoint point1;
+    QPoint point2;
 
 };
 

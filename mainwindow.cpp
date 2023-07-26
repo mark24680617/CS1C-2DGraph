@@ -10,6 +10,76 @@
 #include "polyline.h"
 #include "readFile.h"
 
+
+vector<int> stringToInt(string number){
+    int currentNum = 0;
+        vector<int> list;
+        int sizeString=number.size();
+        // Traversing string
+        for (int j=0;j<sizeString;j++) {
+            // Checking if the element is number
+          char c = number[j];
+            if (c >= '0' && c <= '9') {
+                currentNum = currentNum * 10 + (c - '0');
+                if(number[j+1]==',' || number[j+1]=='\0'){
+                  list.push_back(currentNum);
+                  j++;
+                  currentNum=0;
+                }
+            }
+        }
+   return list;
+}
+
+vector<QPoint> getPoint(vector<int>& source){
+    int limit = source.size();
+    vector<QPoint> result;
+
+    if(limit==3){
+        // write the code for squre and cirlce
+
+    } else{
+        for(int i=0;i<limit;i=i+2){
+            QPoint temp(source[i] , source[i+1]);
+            result.push_back(temp);
+        }
+    }
+    return result;
+}
+
+Shape* getLine(int id , vector<QPoint> points , string color, int w, string penStyle , string cap , string join){
+    Line* line = new Line;
+    line->set_shapeID(id);
+    line->set_points(points[0] , points[1]);
+    line->set_pen(getColor(color) , w , getPenStyle(penStyle) , getCapStyle(cap) , getJoinStyle(join) );
+    return line;
+}
+
+Shape* getPolyline(int id , vector<QPoint> points , string color, int w, string penStyle , string cap , string join){
+    PolyLine * newPoly= new PolyLine;
+    newPoly->set_shapeID(id);
+
+    for(QPoint a : points)
+        newPoly->set_point(a);
+
+    newPoly->set_pen(getColor(color) , w , getPenStyle(penStyle) , getCapStyle(cap) , getJoinStyle(join) );
+    return newPoly;
+}
+
+Shape* getPolygon(int id , vector<QPoint> points , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
+    polygon * newPoly= new polygon;
+    newPoly->set_shapeID(id);
+
+    for(QPoint a : points)
+        newPoly->set_point(a);
+
+    newPoly->set_pen(getColor(color) , w , getPenStyle(penStyle) , getCapStyle(cap) , getJoinStyle(join) );
+    newPoly->set_brush(getColor(bColor) , getBrushStyle(bStyle));
+    return newPoly;
+}
+
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -24,6 +94,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     canvas1->setShapes(results);
 
+    canvas1->setShapes(results);
 }
 /*
 void MainWindow::paintEvent(QPaintEvent *event)
@@ -129,20 +200,49 @@ void MainWindow::on_pushButton_2_clicked()
 }
 
 
-void MainWindow::on_pushButton_3_clicked()  // line
+
+void MainWindow::on_pushButton_3_clicked()  // add shape
 {
 
-}
+    int type = ui->comboBox->currentIndex();  // get the type of shape
 
+    int id = ui->lineEdit->text().toInt();
+    int penW = ui->lineEdit_width->text().toInt();
+    string color = ui->lineEdit_Pcolor->text().toStdString();
+    string penStyle = ui->lineEdit_penStyle->text().toStdString();
+    string penCap = ui->lineEdit_cap->text().toStdString();
+    string penJoin = ui->lineEdit_Join->text().toStdString();
+    string dimentions = ui->lineEdit_D->text().toStdString();
+    string bColor=ui->lineEdit_bColor->text().toStdString();
+    string bStyle=ui->lineEdit_bStyle->text().toStdString();
+    vector<int> dTion=stringToInt(dimentions);
+    vector<QPoint> points=getPoint(dTion);
 
-void MainWindow::on_pushButton_4_clicked()  // polyline
-{
+    switch (type) {
+    case 0:
+        results.push_back(getLine(id , points , color , penW , penStyle , penCap , penJoin));
+        break;
+    case 1:
+        results.push_back(getPolyline(id , points , color , penW , penStyle , penCap , penJoin));
+        break;
+    case 2:
+        results.push_back(getPolygon(id , points , color , penW , penStyle , penCap , penJoin, bColor , bStyle));
+        break;
+//<<<<<<< HEAD
 
-}
+//=======
+        /*
+    case 3:
+        results.push_back(getEllipse(id, points, color, penQ, penStyle, penCap, penJoin, bColor, bStyle));
+        break;
+    case 4:
+        results.push_back(getRectangle(id, points, color, penQ, penStyle, penCap, penJoin, bColor, bStyle));
+        break;
+    */
+//>>>>>>> 8731232d503cf3f2eb5828b0d111b81a9c981ae8
+    }
 
-
-void MainWindow::on_pushButton_5_clicked()  // polygon
-{
+    canvas1->setShapes(results);
 
 }
 
