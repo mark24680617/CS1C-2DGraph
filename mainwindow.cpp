@@ -128,6 +128,13 @@ Shape* getCircle(int id , vector<int> number , string color, int w, string penSt
     return newC;
 }
 
+void MainWindow::updateRemovelist(){
+    int size = results.size();
+    for(int i=0;i<size;i++){
+        QString a=QString::number(results[i]->getID());
+        ui->comboBox_remove->addItem(a);
+    }
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -140,6 +147,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     readFile file("../shapes.txt");
     results = file.getVector();
+
+    updateRemovelist();
 
     canvas1->setShapes(results);
 
@@ -294,5 +303,23 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
 
     canvas1->setShapes(results);
 
+}
+
+void MainWindow::on_pushButton_5_clicked()  // remove button
+{
+    QString data= ui->comboBox_remove->currentText();
+    int id = data.toInt();
+    int sizeResult = results.size();
+    for(int i=0 ; i<sizeResult;i++){
+        if(id == results[i]->getID()){
+           results.erase(results.begin()+i);
+           break;
+        }
+    }
+
+    ui->comboBox_remove->clear();
+    updateRemovelist();
+
+    canvas1->setShapes(results);
 }
 
