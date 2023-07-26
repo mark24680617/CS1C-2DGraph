@@ -117,8 +117,12 @@
       <height>591</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">
+</string>
+    </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Add">
      <attribute name="title">
@@ -760,6 +764,32 @@
      </widget>
     </widget>
    </widget>
+   <widget class="QPushButton" name="save_button">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>20</y>
+      <width>51</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="Resources.qrc">
+      <normaloff>:/icons/feather/save.svg</normaloff>:/icons/feather/save.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -767,7 +797,7 @@
      <x>0</x>
      <y>0</y>
      <width>1482</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
@@ -776,5 +806,22 @@
  <resources>
   <include location="Resources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>tabWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1098</x>
+     <y>59</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1225</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

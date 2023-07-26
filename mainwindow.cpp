@@ -11,6 +11,7 @@
 #include "readFile.h"
 
 
+
 vector<int> stringToInt(string number){
     int currentNum = 0;
         vector<int> list;
@@ -151,6 +152,12 @@ MainWindow::MainWindow(QWidget *parent)
     updateRemovelist();
 
     canvas1->setShapes(results);
+    ui->tabWidget->setVisible(false);
+    // Create the login instance
+    login* loginWidget = new login;
+
+    // Connect the login's loggedInSignal to the setLoggedIn slot of MainWindow
+    connect(loginWidget, &login::loggedInSignal, this, &MainWindow::setLoggedIn);
 
 }
 /*
@@ -357,5 +364,15 @@ void MainWindow::on_pushButton_4_clicked() { // add text {
     results.push_back(newText);
 
     canvas1->setShapes(results);
+}
+
+void MainWindow::setLoggedIn() {
+    qDebug()<<"Logged In"<<endl;
+    ui->tabWidget->setVisible(true);
+}
+
+void MainWindow::on_save_button_clicked()
+{
+    //write below for saving the vector info to a file
 }
 

@@ -18,8 +18,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
     void updateRemovelist();
+
+
 
 protected:
     //void paintEvent(QPaintEvent *event) override;
@@ -35,10 +36,15 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_save_button_clicked();
+
+    void setLoggedIn();
+
 private:
     Ui::MainWindow *ui;
     vector<Shape*> results;
     canvas* canvas1;
+    bool loggedin = false;
 
 };
 #endif // MAINWINDOW_H
