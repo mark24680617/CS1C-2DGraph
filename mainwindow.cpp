@@ -152,12 +152,8 @@ MainWindow::MainWindow(QWidget *parent)
     updateRemovelist();
 
     canvas1->setShapes(results);
-    ui->tabWidget->setVisible(false);
-    // Create the login instance
-    login* loginWidget = new login;
+    ui->tabWidget->setDisabled(true);
 
-    // Connect the login's loggedInSignal to the setLoggedIn slot of MainWindow
-    connect(loginWidget, &login::loggedInSignal, this, &MainWindow::setLoggedIn);
 
 }
 /*

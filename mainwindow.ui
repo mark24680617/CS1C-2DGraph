@@ -114,19 +114,18 @@
       <x>1220</x>
       <y>10</y>
       <width>251</width>
-      <height>591</height>
+      <height>601</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-</string>
+     <string notr="true"/>
     </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
     <widget class="QWidget" name="Add">
      <attribute name="title">
-      <string>Add Shapes</string>
+      <string>Add</string>
      </attribute>
      <widget class="QComboBox" name="comboBox">
       <property name="geometry">
@@ -435,7 +434,7 @@
     </widget>
     <widget class="QWidget" name="text_only">
      <attribute name="title">
-      <string>Add Text</string>
+      <string>Text</string>
      </attribute>
      <widget class="QLabel" name="label_15">
       <property name="geometry">
@@ -701,7 +700,7 @@
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Page</string>
+      <string>Modify</string>
      </attribute>
      <widget class="QPushButton" name="pushButton_6">
       <property name="geometry">
@@ -809,17 +808,17 @@
  <connections>
   <connection>
    <sender>pushButton_2</sender>
-   <signal>clicked()</signal>
+   <signal>clicked(bool)</signal>
    <receiver>tabWidget</receiver>
-   <slot>show()</slot>
+   <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1098</x>
-     <y>59</y>
+     <x>1090</x>
+     <y>62</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1225</x>
-     <y>145</y>
+     <x>1220</x>
+     <y>161</y>
     </hint>
    </hints>
   </connection>
