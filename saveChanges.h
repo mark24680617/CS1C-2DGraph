@@ -12,19 +12,34 @@ string sStyle(PenStyle temp){
 
     case DotLine: return "DotLine";
         break;
+    case NoPen: return "NoPen";
+        break;
+    case DashLine: return "DashLine";
+        break;
+    case DashDotLine: return "DashDotLine";
+        break;
+    case DashDotDotLine: return "DashDotDotLine";
+        break;
+    case CustomDashLine: return "CustomDashLine";
+        break;
+    case MPenStyle: return "MPenStyle";
+        break;
+    default: return "empty";
     }
-    return "empty";
 }
 
-string sShape(shapeType shape){
+string sShape(Shape::shapeType shape){
 
     switch (shape) {
-    case shapeType(0) : return "Line";
+    case Shape::shapeType(0) : return "Line";
         break;
 
-    case shapeType(1): return "Polyline";
+    case Shape::shapeType(1): return "Polyline";
         break;
-
+    case Shape::shapeType(1): return "Polyline";
+        break;
+    case Shape::shapeType(1): return "Polyline";
+        break;
 
 
     }
