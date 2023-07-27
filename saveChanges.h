@@ -178,7 +178,6 @@ void saveChanges(myStd::vector<Shape*>  shapes)
             fout << "TextFontStyle: " << text.getFontStyle() << '\n';
             fout << "TextFontWeight: " << text.getFontWeight() << '\n';
         }
-//        sStyle(s->get_pen().style())
     }
     fout.close();
 }

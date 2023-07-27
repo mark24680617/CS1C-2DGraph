@@ -2,8 +2,8 @@
 
 myStd::vector<QPoint> Ellipse::get_points() const {
     myStd::vector<QPoint> pointsList;
-    pointsList.push_back(this->rect.topLeft());
-    pointsList.push_back(this->rect.bottomRight());
+    pointsList.push_back(QPoint(this->rect.topLeft().x(), this->rect.topRight().y()));
+    pointsList.push_back(QPoint(this->rect.bottomRight().x(), this->rect.bottomRight().y()));
 
     return pointsList;
 }
