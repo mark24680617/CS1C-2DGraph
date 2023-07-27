@@ -1,5 +1,12 @@
 #include "polyline.h"
 
+void PolyLine::set_points(const vector<QPoint>& pointsList)
+{
+    for (int i = 0; i < points.size() && i < pointsList.size(); ++i) {
+        points[i] = pointsList[i];
+    }
+
+}
 
 void PolyLine::set_point(const QPoint& point)
 {

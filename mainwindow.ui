@@ -114,15 +114,18 @@
       <x>1220</x>
       <y>10</y>
       <width>251</width>
-      <height>591</height>
+      <height>601</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="Add">
      <attribute name="title">
-      <string>Add Shapes</string>
+      <string>Add</string>
      </attribute>
      <widget class="QComboBox" name="comboBox">
       <property name="geometry">
@@ -431,7 +434,7 @@
     </widget>
     <widget class="QWidget" name="text_only">
      <attribute name="title">
-      <string>Add Text</string>
+      <string>Text</string>
      </attribute>
      <widget class="QLabel" name="label_15">
       <property name="geometry">
@@ -697,7 +700,7 @@
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Page</string>
+      <string>Modify</string>
      </attribute>
      <widget class="QPushButton" name="pushButton_6">
       <property name="geometry">
@@ -709,7 +712,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>move</string>
+       <string>Move</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_25">
@@ -725,16 +728,6 @@
        <string>ID</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_20">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>30</y>
-        <width>131</width>
-        <height>23</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_26">
       <property name="geometry">
        <rect>
@@ -745,20 +738,56 @@
        </rect>
       </property>
       <property name="text">
-       <string>new dimentions</string>
+       <string>New Point Coods</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_21">
+     <widget class="QLineEdit" name="lineEdit_coords">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>100</x>
         <y>90</y>
         <width>131</width>
         <height>23</height>
        </rect>
       </property>
      </widget>
+     <widget class="QComboBox" name="comboBox_move">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>30</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="save_button">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>20</y>
+      <width>51</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="Resources.qrc">
+      <normaloff>:/icons/feather/save.svg</normaloff>:/icons/feather/save.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -767,7 +796,7 @@
      <x>0</x>
      <y>0</y>
      <width>1482</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
@@ -776,5 +805,22 @@
  <resources>
   <include location="Resources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>tabWidget</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1090</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1220</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

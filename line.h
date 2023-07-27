@@ -19,8 +19,13 @@ public:
 
     // What: Sets the points for the line
     // Pre-Condition: None
+    // Post-Condition: arributtes point_begin and point_end get set with the passed in parameters from the vector
+    void set_points(const vector<QPoint>& pointsList) override;
+
+    // What: Sets the points for the line
+    // Pre-Condition: None
     // Post-Condition: arributtes point_begin and point_end get set with the passed in parameters
-    void set_points(const QPoint& point_begin, const QPoint& point_end);
+    void set_points(const QPoint& point_begin, const QPoint& point_end) override;
 
     // What: Line Drawn
     // Pre-Condition: None

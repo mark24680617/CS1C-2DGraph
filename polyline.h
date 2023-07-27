@@ -18,6 +18,8 @@ public:
     // Post-Condition: The object gets deconstructed and put into an invalid state
     ~PolyLine() override{}
 
+    void set_points(const vector<QPoint>& pointsList) override;
+
     // What: Sets the points
     // Pre-Condition: None
     // Post-Condition: The passed in parameter gets pushed back into the vector points

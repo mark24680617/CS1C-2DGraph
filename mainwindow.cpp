@@ -11,6 +11,7 @@
 #include "readFile.h"
 
 
+
 vector<int> stringToInt(string number){
     int currentNum = 0;
         vector<int> list;
@@ -128,11 +129,12 @@ Shape* getCircle(int id , vector<int> number , string color, int w, string penSt
     return newC;
 }
 
-void MainWindow::updateRemovelist(){
+void MainWindow::updateLists() {
     int size = results.size();
     for(int i=0;i<size;i++){
         QString a=QString::number(results[i]->getID());
         ui->comboBox_remove->addItem(a);
+        ui->comboBox_move->addItem(a);
     }
 }
 
@@ -148,9 +150,11 @@ MainWindow::MainWindow(QWidget *parent)
     readFile file("../shapes.txt");
     results = file.getVector();
 
-    updateRemovelist();
+    updateLists();
 
     canvas1->setShapes(results);
+    ui->tabWidget->setDisabled(true);
+
 
 }
 /*
@@ -257,7 +261,6 @@ void MainWindow::on_pushButton_2_clicked()
 }
 
 
-
 void MainWindow::on_pushButton_3_clicked()  // add shape
 {
 
@@ -318,7 +321,7 @@ void MainWindow::on_pushButton_5_clicked()  // remove button
     }
 
     ui->comboBox_remove->clear();
-    updateRemovelist();
+    updateLists();
 
     canvas1->setShapes(results);
 }
@@ -359,3 +362,41 @@ void MainWindow::on_pushButton_4_clicked() { // add text {
     canvas1->setShapes(results);
 }
 
+void MainWindow::setLoggedIn() {
+    qDebug()<<"Logged In"<<endl;
+    ui->tabWidget->setVisible(true);
+}
+
+void MainWindow::on_save_button_clicked()
+{
+    //write below for saving the vector info to a file
+}
+
+void MainWindow::on_pushButton_6_clicked() //Move button clicked
+{
+    QString data= ui->comboBox_move->currentText();
+    int id = data.toInt();
+    int sizeResult = results.size();
+
+    for(int i = 0 ; i < sizeResult; ++i){
+        if (id == results[i]->getID()){
+            Shape *selectedShape = results[i];
+            vector<int> pointCoords = stringToInt(ui->lineEdit_coords->text().toStdString());
+            vector<QPoint> points;
+
+            //Ensure the text box was filled
+            if (pointCoords.size() != 0) {
+                if (selectedShape->get_shape() == Shape::shapeType::Ellipse) {
+
+                }
+
+                points = getPoint(pointCoords);
+                selectedShape->set_points(points);
+            }
+        }
+    }
+
+    canvas1->setShapes(results);
+
+//    Shape::shapeType selectedShape = results[ui->lineEdit_20->text().toInt()]->get_shape();
+}
