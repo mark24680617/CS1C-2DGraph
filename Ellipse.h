@@ -18,6 +18,8 @@ public:
      */
     ~Ellipse() override {}
 
+    virtual myStd::vector<QPoint> get_points() const override;
+
     void set_points(const myStd::vector<QPoint>& pointsList) override;
 
     /**

@@ -12,10 +12,28 @@ public:
      */
     Text(QPaintDevice* device = nullptr, int id = -1) : Shape(device, id, shapeType::Text) {}
 
+//    Text(QPaintDevice* device = nullptr, int id = -1) : Shape(device, id, shapeType::Text) {}
+
     /**
      * @brief destructor of Text
      */
     ~Text() override {}
+
+    virtual myStd::vector<QPoint> get_points() const override;
+
+    string getString() const { return text.toStdString(); };
+
+    GlobalColor getColor() const { return textColor; };
+
+    AlignmentFlag getAlignment() const { return textAlignment; };
+
+    int getPointSize() const { return textPointSize; };
+
+    string getFontFamily() const { return textFontFamily.toStdString(); };
+
+    QFont::Style getFontStyle() const { return textFontStyle; };
+
+    int  getFontWeight() const {return textFontWeight; };
 
     /**
      * @brief Set the top-left and bottom-right points of the text's bounding rectangle using a vector.

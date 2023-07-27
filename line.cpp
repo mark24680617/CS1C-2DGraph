@@ -1,5 +1,13 @@
 #include "line.h"
 
+myStd::vector<QPoint> Line::get_points() const {
+    myStd::vector<QPoint> pointsList;
+    pointsList.push_back(this->point_begin);
+    pointsList.push_back(this->point_end);
+
+    return pointsList;
+}
+
 void Line::set_points(const myStd::vector<QPoint>& pointsList) {
     this->point_begin = pointsList[0];
     this->point_end = pointsList[1];
