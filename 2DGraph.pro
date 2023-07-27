@@ -1,8 +1,9 @@
+LIBS += -lstdc++fs
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++17
+CONFIG += c++1z
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -36,6 +37,8 @@ HEADERS += \
     Ellipse.h \
     Text.h \
     readFile.h \
+    readSavedChanges.h \
+    #saveChanges.h \ //uncomment this when to test
 
 FORMS += \
     contact.ui \
