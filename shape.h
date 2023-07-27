@@ -17,10 +17,11 @@ Worked on by:
 using namespace std;
 using namespace Qt;
 
+ enum class shapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Text};
+
 class Shape
 {
 public:
-    enum class shapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Text};
 
     Shape (QPaintDevice* device = nullptr, int id = -1, shapeType shape = shapeType::NoShape)
         : id(id), shape(shape)
@@ -36,7 +37,7 @@ public:
     int getID() const
     {
              return id;
-         }
+    }
 
 	shapeType get_shape() const
 	{
