@@ -183,6 +183,8 @@ public:
      */
     virtual void draw(QPainter& painter, const int translate_x, const int translate_y) = 0;
 
+    virtual myStd::vector<QPoint> get_points() const = 0;
+
     /**
      * @brief virtual function to set point
      * @param points myStd::vector<QPoint>
@@ -213,10 +215,10 @@ protected:
      * @brief helper function to get painter object
      * @return QPainter
      */
-	QPainter& get_qpainter() const
-	{
-		return *qpainter; // not sure if this is the right return I just added * to the front
-	}
+    QPainter& get_qpainter() const
+    {
+        return *qpainter; // not sure if this is the right return I just added * to the front
+    }
 
 private:
 	QPainter* qpainter; /// qPainter to draw shapes

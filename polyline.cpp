@@ -1,5 +1,14 @@
 #include "polyline.h"
 
+myStd::vector<QPoint> PolyLine::get_points() const {
+    myStd::vector<QPoint> pointsList;
+    for (int i = 0; i < points.size(); ++i) {
+        pointsList.push_back(points[i]);
+    }
+
+    return pointsList;
+}
+
 void PolyLine::set_points(const myStd::vector<QPoint>& pointsList)
 {
     for (int i = 0; i < points.size() && i < pointsList.size(); ++i) {

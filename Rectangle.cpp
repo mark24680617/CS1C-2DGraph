@@ -1,5 +1,13 @@
 #include "Rectangle.h"
 
+myStd::vector<QPoint> Rectangle::get_points() const {
+    myStd::vector<QPoint> pointsList;
+    pointsList.push_back(this->top_left);
+    pointsList.push_back(this->bottom_right);
+
+    return pointsList;
+}
+
 void Rectangle::set_points(const myStd::vector<QPoint>& pointsList)
 {
     this->top_left = pointsList[0];

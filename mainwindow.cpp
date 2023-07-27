@@ -9,7 +9,7 @@
 #include "polygon.h"
 #include "polyline.h"
 #include "readFile.h"
-
+#include "saveChanges.h"
 
 
 myStd::vector<int> stringToInt(string number){
@@ -305,6 +305,8 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
         break;
     }
 
+    updateLists();
+
     canvas1->setShapes(results);
 
 }
@@ -370,7 +372,7 @@ void MainWindow::setLoggedIn() {
 
 void MainWindow::on_save_button_clicked()
 {
-    //write below for saving the vector info to a file
+    saveChanges(results);
 }
 
 void MainWindow::on_pushButton_6_clicked() //Move button clicked
