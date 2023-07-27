@@ -240,6 +240,7 @@ MainWindow::~MainWindow()
     }
     results.clear();
     delete ui;
+    delete canvas1;
 }
 
 
