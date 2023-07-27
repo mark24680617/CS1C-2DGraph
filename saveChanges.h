@@ -31,7 +31,6 @@ string sStyle(PenStyle temp){
 
     case DotLine: return "DotLine";
         break;
-<<<<<<< HEAD
     case NoPen: return "NoPen";
         break;
     case DashLine: return "DashLine";
@@ -46,37 +45,6 @@ string sStyle(PenStyle temp){
         break;
     default: return "empty";
     }
-}
-
-string sShape(Shape::shapeType shape){
-
-    switch (shape) {
-    case Shape::shapeType(0) : return "Line";
-        break;
-
-    case Shape::shapeType(1): return "Polyline";
-        break;
-    case Shape::shapeType(1): return "Polyline";
-        break;
-    case Shape::shapeType(1): return "Polyline";
-        break;
-
-
-=======
-
-    case DashLine: return "DashLine";
-        break;
-
-    case DashDotLine: return "DashDotLine";
-        break;
-
-    case DashDotDotLine: return "DashDotDotLine";
-        break;
-
-    default: return "empty";
-        break;
-    }
-
 }
 
 string sShape(Shape::shapeType shape) {
@@ -95,7 +63,7 @@ string sShape(Shape::shapeType shape) {
         return "Text";
     default:
         return "Unknown";
->>>>>>> 6b301590479f64e0907b4d1949b247f963e36bce
+
     }
 }
 
@@ -121,12 +89,66 @@ string sColor(QColor color){
         return "black";
     }
 }
-
+string pCapStyle(Qt::PenCapStyle penCapStyle){
+    switch(penCapStyle){
+  case Qt::RoundCap: return "RoundCap";
+    break;
+  case Qt::FlatCap: return "FlatCap";
+    break;
+  case Qt::SquareCap: return "SquareCap";
+    break;
+  default: return "none";
+    }
+}
+string pJoinStyle(Qt::PenJoinStyle penJoinStyle){
+    switch(penJoinStyle){
+      case Qt::MiterJoin: return "MitterJoin";
+        break;
+      case Qt::RoundJoin: return "RoundJoin";
+        break;
+      case Qt::BevelJoin: return "BevelJoin";
+        break;
+      case Qt::SvgMiterJoin: return "SvgMiterJoin";
+        break;
+      default: return "none";
+      }
+}
+string pBrushStyle(Qt::BrushStyle penBrushStyle){
+      switch(penBrushStyle){
+        case Qt::NoBrush: return "NoBrush";
+          break;
+        case Qt::SolidPattern: return "SolidPattern";
+          break;
+        case Qt::Dense1Pattern: return "Dense1Pattern";
+          break;
+        case Qt::Dense2Pattern: return "Dense2Pattern";
+          break;
+        case Qt::Dense3Pattern: return "Dense3Pattern";
+          break;
+        case Qt::Dense4Pattern: return "Dense4Pattern";
+          break;
+        case Qt::Dense5Pattern: return "Dense5Pattern";
+          break;
+        case Qt::Dense6Pattern: return "Dense6Pattern";
+          break;
+        case Qt::Dense7Pattern: return "Dense7Pattern";
+          break;
+        case Qt::HorPattern: return "HorPattern";
+          break;
+        case Qt::VerPattern: return "VerPattern";
+          break;
+        case Qt::CrossPattern: return "CrossPattern";
+          break;
+        default: return "none";
+          break;
+      }
+}
 void saveChanges(myStd::vector<Shape*>  shapes)
 {
     ofstream fout("../shapes.txt");
     for(auto s : shapes)
     {
+
         if (s->get_shape() != Shape::shapeType::Text) {
             fout << '\n';
             fout << "ShapeId: " << s->getID() << '\n';
@@ -135,11 +157,11 @@ void saveChanges(myStd::vector<Shape*>  shapes)
             fout << "PenColor: " << sColor(s->get_pen().color()) << '\n';
             fout << "PenWidth: " << s->get_pen().width() << '\n';
             fout << "PenStyle: " << sStyle(s->get_pen().style()) << '\n';
-            fout << "PenCapStyle: " << s->get_pen().capStyle() << '\n';
-            fout << "PenJoinStyle: " << s->get_pen().joinStyle() << '\n';
+            fout << "PenCapStyle: " << pCapStyle(s->get_pen().capStyle()) << '\n';
+            fout << "PenJoinStyle: " << pJoinStyle(s->get_pen().joinStyle()) << '\n';
             if (s->get_shape() != Shape::shapeType::Line && s->get_shape() != Shape::shapeType::Polyline) {
                 fout << "BrushColor: " << sColor(s->get_brush().color()) << '\n';
-                fout << "BrushStyle: " << s->get_brush().style() << '\n';
+                fout << "BrushStyle: " << pBrushStyle(s->get_brush().style()) << '\n';
             }
         } else {
             Text text(nullptr, s->getID());
