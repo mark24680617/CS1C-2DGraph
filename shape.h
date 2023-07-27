@@ -92,6 +92,7 @@ public:
 		qpainter->setBrush(brush);
 	}
 
+    /* //lead the program to crash, shape->shape, shape->pen.color....and so on can not be printed directly
     //don't use cout for QT, use Debug() <------------- Fix this
 	static void printlisting(vector<Shape*> shapes){ //all couts have been changed to qDebug() coming from the QDebug library
        for(auto shape : shapes) {
@@ -107,10 +108,14 @@ public:
            qDebug() << "Brush Color: " << shape->brush.brushStyle << "\n";
        }
    }
-
+    */
 	void draw_rect(int width, int height); // NO IMPLEMENTATION YET
 
     virtual void draw(QPainter& painter, const int translate_x, const int translate_y) = 0;
+
+    virtual void set_points(const vector<QPoint>& points) {};
+
+    virtual void set_points(const QPoint& point_begin, const QPoint& point_end) {};
 
 	virtual double perimeter() const = 0;
 
