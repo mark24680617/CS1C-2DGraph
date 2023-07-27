@@ -92,29 +92,25 @@ public:
 		qpainter->setBrush(brush);
 	}
 
-    //don't use cout for QT, use Debug()
-//	void printlisting(vector<Shape> &shapes){ //all couts have been changed to qDebug() coming from the QDebug library
-//        for(auto Shape : shapes) {
-//            qDebug() << "ShapeID: " << shapes->id() << "\n";
-//            qDebug() <<"ShapeType : " << shapes->shape() << "\n";
-//            qDebug() << "ShapeDimensions: " << shapes->dimensions() << "\n";
-//            qDebug() << "Pen Color: "<< pen.(color) << "\n";
-//            qDebug() << "Pen Width: " << pen.(width) << "\n";
-//            qDebug() << "Pen Style: " << pen.(penStyle)<< "\n";
-//            qDebug() << "Pen Cap Style: " << pen.(penCapStyle) << "\n";
-//            qDebug() << "Pen Join Style: " << pen.(penJoinStyle) << "\n";
-//            qDebug() << "Brush Color: " << brush.(color) << "\n";
-//            qDebug() << "Brush Color: " << brush.(brushStyle) << "\n";
-//        }
-//    }
+    //don't use cout for QT, use Debug() <------------- Fix this
+	static void printlisting(vector<Shape*> shapes){ //all couts have been changed to qDebug() coming from the QDebug library
+       for(auto shape : shapes) {
+           qDebug() << "ShapeID: " << shape->id << "\n";
+           qDebug() <<"ShapeType : " << shape->shape << "\n";
+           qDebug() << "ShapeDimensions: " << shape->dimensions << "\n";
+           qDebug() << "Pen Color: "<< shape->pen.color << "\n";
+           qDebug() << "Pen Width: " << shape->pen.width << "\n";
+           qDebug() << "Pen Style: " << shape->pen.penStyle<< "\n";
+           qDebug() << "Pen Cap Style: " << shape->pen.penCapStyle << "\n";
+           qDebug() << "Pen Join Style: " << shape->pen.penJoinStyle << "\n";
+           qDebug() << "Brush Color: " << shape->brush.color << "\n";
+           qDebug() << "Brush Color: " << shape->brush.brushStyle << "\n";
+       }
+   }
 
 	void draw_rect(int width, int height); // NO IMPLEMENTATION YET
 
     virtual void draw(QPainter& painter, const int translate_x, const int translate_y) = 0;
-
-    virtual void set_points(const vector<QPoint>& points) {};
-
-    virtual void set_points(const QPoint& point_begin, const QPoint& point_end) {};
 
 	virtual double perimeter() const = 0;
 
