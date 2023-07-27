@@ -8,19 +8,22 @@
 class canvas : public QWidget
 {
 public:
-    // What: The constructor
-    // Pre-Condition: None
-    // Post-Condition: The object gets constructed
+    /**
+     * @brief constructor of canvas
+     * @param parent QWidget
+     */
     explicit canvas(QWidget *parent = nullptr);
 
-    // What: Sets Vector
-    // Pre-Condition: None
-    // Post-Condition: The local vector gets updated with the passed in vector
+    /**
+     * @brief set shapes in vector
+     * @param vector shapes
+     */
     void setShapes(const vector<Shape*>& shapes);
 protected:
-    // What: Paint Event
-    // Pre-Condition: None
-    // Post-Condition: All shapes get drawn
+    /**
+     * @brief sets up a paint event
+     * @param QPaintEvent event
+     */
     void paintEvent(QPaintEvent *event) override;
 private:
     vector<Shape*> shapes;
