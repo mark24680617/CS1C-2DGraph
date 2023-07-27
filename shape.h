@@ -112,6 +112,10 @@ public:
 
     virtual void draw(QPainter& painter, const int translate_x, const int translate_y) = 0;
 
+    virtual void set_points(const vector<QPoint>& points) {};
+
+    virtual void set_points(const QPoint& point_begin, const QPoint& point_end) {};
+
 	virtual double perimeter() const = 0;
 
 	virtual double area() const = 0;

@@ -23,6 +23,10 @@ void login::on_login_pushButton_clicked()
     if(username == "Admin" && password == "password")
     {
         QMessageBox::information(this, "Login", "Logged in");
+        // Emit the signal when the login is successful
+        emit loggedInSignal();
+
+
         QList<QWidget*> topLevelWidgets = qApp->topLevelWidgets();
         foreach(QWidget *widget, topLevelWidgets) {
             QMainWindow *mainWindow = qobject_cast<QMainWindow*>(widget);
@@ -30,11 +34,13 @@ void login::on_login_pushButton_clicked()
                 // Show the main window if it was previously hidden
                 if (!mainWindow->isVisible()) {
                     mainWindow->show();
+
                 }
                 break;
             }
         }
         hide();
+
 
     }
     else
