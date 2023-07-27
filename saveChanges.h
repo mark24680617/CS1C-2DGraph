@@ -34,7 +34,7 @@ string sShape(shapeType shape){
 }
 
 
-void saveChanges(vector<Shape*>  shapes)
+void saveChanges(myStd::vector<Shape*>  shapes)
 {
     ofstream fout("savedChanges.txt");
     for(auto s : shapes)

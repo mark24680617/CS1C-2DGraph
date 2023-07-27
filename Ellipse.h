@@ -1,6 +1,7 @@
 #ifndef CS1C_2DGRAPH_ELLIPSE_H
 #define CS1C_2DGRAPH_ELLIPSE_H
 
+#include "vector.h"
 #include "shape.h"
 
 class Ellipse : public Shape {
@@ -17,7 +18,7 @@ public:
      */
     ~Ellipse() override {}
 
-    void set_points(const vector<QPoint>& pointsList) override;
+    void set_points(const myStd::vector<QPoint>& pointsList) override;
 
     /**
      * @brief set points for shape

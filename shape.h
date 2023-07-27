@@ -13,6 +13,7 @@ Worked on by:
 #include <QPoint>
 #include <QFont>
 #include <QDebug>
+#include "vector.h"
 
 using namespace std;
 using namespace Qt;
@@ -184,9 +185,9 @@ public:
 
     /**
      * @brief virtual function to set point
-     * @param points vector<QPoint>
+     * @param points myStd::vector<QPoint>
      */
-    virtual void set_points(const vector<QPoint>& points) {};
+    virtual void set_points(const myStd::vector<QPoint>& points) {};
 
     /**
      * @brief addition virtual function to move shapes

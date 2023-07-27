@@ -17,7 +17,7 @@ public:
      */
     ~polygon() override{ }
 
-    void set_points(const vector<QPoint>& pointsList) override;
+    void set_points(const myStd::vector<QPoint>& pointsList) override;
 
     /**
      * @brief set points for shape
@@ -48,7 +48,7 @@ private:
     /**
      * stores a vector of qpoints
      */
-    vector<QPoint> points;
+    myStd::vector<QPoint> points;
 };
 
 #endif // POLYGON_H

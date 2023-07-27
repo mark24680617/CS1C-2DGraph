@@ -704,6 +704,6 @@ QFont::Style getTextFontStyle(string& temp){
     return QFont::StyleNormal;
 }
 
-vector<Shape*>readFile::getVector(){
+myStd::vector<Shape*>readFile::getVector(){
     return list;
 }

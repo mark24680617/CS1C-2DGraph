@@ -1,6 +1,7 @@
 #ifndef CS1C_2DGRAPH_RECTANGLE_H
 #define CS1C_2DGRAPH_RECTANGLE_H
 
+#include "vector.h"
 #include "shape.h"
 
 class Rectangle : public Shape {
@@ -17,7 +18,7 @@ public:
      */
     ~Rectangle() override {}
 
-    void set_points(const vector<QPoint>& pointsList) override;
+    void set_points(const myStd::vector<QPoint>& pointsList) override;
 
     /**
      * @brief set points for shape

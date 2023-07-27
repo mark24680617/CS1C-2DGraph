@@ -1,6 +1,6 @@
 #include "Rectangle.h"
 
-void Rectangle::set_points(const vector<QPoint>& pointsList)
+void Rectangle::set_points(const myStd::vector<QPoint>& pointsList)
 {
     this->top_left = pointsList[0];
     this->bottom_right = pointsList[1];

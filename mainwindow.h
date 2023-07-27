@@ -85,7 +85,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;     /*!ui for mainwindow*/
-    vector<Shape*> results; /*!main vector to store shape info*/
+    myStd::vector<Shape*> results; /*!main vector to store shape info*/
     canvas* canvas1;        /*!pointer to canvase object*/
     bool loggedin = false;  /*!logged in value*/
 
