@@ -37,6 +37,8 @@ HEADERS += \
     Ellipse.h \
     Text.h \
     readFile.h \
+    readSavedChanges.h \
+    #saveChanges.h \ //uncomment this when to test
 
 FORMS += \
     contact.ui \
