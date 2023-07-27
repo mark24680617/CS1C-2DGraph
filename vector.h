@@ -79,11 +79,6 @@ public:
 
     /// destructor
     ~vector() {
-        if (std::is_pointer(elem[0])) {
-            for (int i = 0; i < size(); ++i) {
-                delete elem[i];
-            }
-        }
         delete[] elem;
     }
 
