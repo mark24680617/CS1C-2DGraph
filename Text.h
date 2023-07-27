@@ -17,6 +17,11 @@ public:
      */
     ~Text() override {}
 
+    /**
+     * @brief Set the top-left and bottom-right points of the text's bounding rectangle using a vector.
+     * @param top_left The top-left point of the bounding rectangle.
+     * @param bottom_right The bottom-right point of the bounding rectangle.
+     */
     void set_points(const vector<QPoint>& pointsList) override;
 
     /**
