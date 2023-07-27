@@ -102,7 +102,7 @@ string pCapStyle(Qt::PenCapStyle penCapStyle){
 }
 string pJoinStyle(Qt::PenJoinStyle penJoinStyle){
     switch(penJoinStyle){
-      case Qt::MiterJoin: return "MitterJoin";
+      case Qt::MiterJoin: return "MiterJoin";
         break;
       case Qt::RoundJoin: return "RoundJoin";
         break;
