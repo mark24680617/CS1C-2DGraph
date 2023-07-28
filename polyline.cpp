@@ -1,6 +1,15 @@
 #include "polyline.h"
 
-void PolyLine::set_points(const vector<QPoint>& pointsList)
+myStd::vector<QPoint> PolyLine::get_points() const {
+    myStd::vector<QPoint> pointsList;
+    for (int i = 0; i < points.size(); ++i) {
+        pointsList.push_back(points[i]);
+    }
+
+    return pointsList;
+}
+
+void PolyLine::set_points(const myStd::vector<QPoint>& pointsList)
 {
     for (int i = 0; i < points.size() && i < pointsList.size(); ++i) {
         points[i] = pointsList[i];
@@ -22,7 +31,7 @@ void PolyLine::draw(QPainter& painter, const int translate_x, const int translat
     //get_qpainter().save(); may not need
     //get_qpainter().translate(translate_x, translate_y); dont worry/ dont need
 
-    painter.drawPolyline(points.data(), points.size()); //Review: There are no function to call drawPolyline // This may have fixed it
+    painter.drawPolyline(points.begin(), points.size()); //Review: There are no function to call drawPolyline // This may have fixed it
 
     //painter.restore(); SOMEONE MAY NEED THIS FOR THE MOVE FUNCTIONS
 }

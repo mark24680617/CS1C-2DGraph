@@ -20,7 +20,9 @@ public:
      */
     ~PolyLine() override{}
 
-    void set_points(const vector<QPoint>& pointsList) override;
+    virtual myStd::vector<QPoint> get_points() const override;
+
+    void set_points(const myStd::vector<QPoint>& pointsList) override;
 
     /**
      * @brief set points for shape
@@ -51,7 +53,7 @@ private:
     /**
      * stores a vector of qpoints
      */
-    vector<QPoint> points;
+    myStd::vector<QPoint> points;
 };
 
 #endif // POLYLINE_H

@@ -477,7 +477,7 @@ Shape* readFile::ReadEcllipce(fstream& inFile , int id){
 	getline(inFile , bStyle);
 
 
-	QRect rect(a,b,c,d);
+    QRect rect(QPoint(a, b), QPoint(c, d));
 
     Ellipse *result = new Ellipse;
 	result->set_shapeID(id);
@@ -704,6 +704,6 @@ QFont::Style getTextFontStyle(string& temp){
     return QFont::StyleNormal;
 }
 
-vector<Shape*>readFile::getVector(){
+myStd::vector<Shape*>readFile::getVector(){
     return list;
 }

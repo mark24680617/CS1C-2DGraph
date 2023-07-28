@@ -259,6 +259,13 @@ public:
         --size_v;
         return p;
     }
+
+    void clear() {
+        while (size() > 0) {
+            erase(begin());
+        }
+    }
+
 };
 }
 

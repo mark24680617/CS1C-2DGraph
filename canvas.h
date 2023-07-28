@@ -18,7 +18,7 @@ public:
      * @brief set shapes in vector
      * @param vector shapes
      */
-    void setShapes(const vector<Shape*>& shapes);
+    void setShapes(const myStd::vector<Shape*>& shapes);
 protected:
     /**
      * @brief sets up a paint event
@@ -26,7 +26,7 @@ protected:
      */
     void paintEvent(QPaintEvent *event) override;
 private:
-    vector<Shape*> shapes;
+    myStd::vector<Shape*> shapes;
 
 };
 

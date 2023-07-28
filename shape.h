@@ -13,6 +13,7 @@ Worked on by:
 #include <QPoint>
 #include <QFont>
 #include <QDebug>
+#include "vector.h"
 
 using namespace std;
 using namespace Qt;
@@ -182,11 +183,13 @@ public:
      */
     virtual void draw(QPainter& painter, const int translate_x, const int translate_y) = 0;
 
+    virtual myStd::vector<QPoint> get_points() const = 0;
+
     /**
      * @brief virtual function to set point
-     * @param points vector<QPoint>
+     * @param points myStd::vector<QPoint>
      */
-    virtual void set_points(const vector<QPoint>& points) {};
+    virtual void set_points(const myStd::vector<QPoint>& points) {};
 
     /**
      * @brief addition virtual function to move shapes
@@ -212,10 +215,10 @@ protected:
      * @brief helper function to get painter object
      * @return QPainter
      */
-	QPainter& get_qpainter() const
-	{
-		return *qpainter; // not sure if this is the right return I just added * to the front
-	}
+    QPainter& get_qpainter() const
+    {
+        return *qpainter; // not sure if this is the right return I just added * to the front
+    }
 
 private:
 	QPainter* qpainter; /// qPainter to draw shapes

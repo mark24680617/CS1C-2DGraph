@@ -82,7 +82,7 @@ class readFile{
     fstream inFile;        ///file stream
 
 	public:
-    vector<Shape*> list;  /// to store all shape info
+    myStd::vector<Shape*> list;  /// to store all shape info
 
     /*!
      * \brief constructor, use to readin file
@@ -144,6 +144,6 @@ class readFile{
 
 
 
-    vector<Shape*> getVector();
+    myStd::vector<Shape*> getVector();
 
 };

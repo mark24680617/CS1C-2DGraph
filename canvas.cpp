@@ -7,7 +7,7 @@ canvas::canvas(QWidget *parent) : QWidget(parent)
 
 }
 
-void canvas::setShapes(const vector<Shape*>& shapes)
+void canvas::setShapes(const myStd::vector<Shape*>& shapes)
 {
     this->shapes = shapes;
     update(); // Trigger a repaint when the shapes are updated <--- THIS IS FOR CHANGING STUFF

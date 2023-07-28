@@ -9,12 +9,12 @@
 #include "polygon.h"
 #include "polyline.h"
 #include "readFile.h"
+#include "saveChanges.h"
 
 
-
-vector<int> stringToInt(string number){
+myStd::vector<int> stringToInt(string number){
     int currentNum = 0;
-        vector<int> list;
+        myStd::vector<int> list;
         int sizeString=number.size();
         // Traversing string
         for (int j=0;j<sizeString;j++) {
@@ -32,9 +32,9 @@ vector<int> stringToInt(string number){
    return list;
 }
 
-vector<QPoint> getPoint(vector<int>& source){
+myStd::vector<QPoint> getPoint(myStd::vector<int>& source){
     int limit = source.size();
-    vector<QPoint> result;
+    myStd::vector<QPoint> result;
         for(int i=0;i<limit;i=i+2){
             QPoint temp(source[i] , source[i+1]);
             result.push_back(temp);
@@ -42,7 +42,7 @@ vector<QPoint> getPoint(vector<int>& source){
     return result;
 }
 
-Shape* getLine(int id , vector<QPoint> points , string color, int w, string penStyle , string cap , string join){
+Shape* getLine(int id , myStd::vector<QPoint> points , string color, int w, string penStyle , string cap , string join){
     Line* line = new Line;
     line->set_shapeID(id);
     line->set_points(points[0] , points[1]);
@@ -50,7 +50,7 @@ Shape* getLine(int id , vector<QPoint> points , string color, int w, string penS
     return line;
 }
 
-Shape* getPolyline(int id , vector<QPoint> points , string color, int w, string penStyle , string cap , string join){
+Shape* getPolyline(int id , myStd::vector<QPoint> points , string color, int w, string penStyle , string cap , string join){
     PolyLine * newPoly= new PolyLine;
     newPoly->set_shapeID(id);
 
@@ -61,7 +61,7 @@ Shape* getPolyline(int id , vector<QPoint> points , string color, int w, string 
     return newPoly;
 }
 
-Shape* getPolygon(int id , vector<QPoint> points , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
+Shape* getPolygon(int id , myStd::vector<QPoint> points , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
     polygon * newPoly= new polygon;
     newPoly->set_shapeID(id);
 
@@ -73,7 +73,7 @@ Shape* getPolygon(int id , vector<QPoint> points , string color, int w, string p
     return newPoly;
 }
 
-Shape* getRectangle(int id , vector<QPoint> points , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
+Shape* getRectangle(int id , myStd::vector<QPoint> points , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
 
     Rectangle*newRec = new Rectangle;
     newRec->set_shapeID(id);
@@ -85,7 +85,7 @@ Shape* getRectangle(int id , vector<QPoint> points , string color, int w, string
     return newRec;
 }
 
-Shape * getEllipce(int id , vector<int> number , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
+Shape * getEllipce(int id , myStd::vector<int> number , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
     Ellipse* newEll = new Ellipse;
     newEll->set_shapeID(id);
     QRect rec(number[0],number[1],number[2],number[3]);
@@ -97,7 +97,7 @@ Shape * getEllipce(int id , vector<int> number , string color, int w, string pen
     return newEll;
 }
 
-Shape* getSqure(int id , vector<int> number , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
+Shape* getSqure(int id , myStd::vector<int> number , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
 
     Rectangle* newS = new Rectangle;
     newS->set_shapeID(id);
@@ -115,7 +115,7 @@ Shape* getSqure(int id , vector<int> number , string color, int w, string penSty
     return newS;
 }
 
-Shape* getCircle(int id , vector<int> number , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
+Shape* getCircle(int id , myStd::vector<int> number , string color, int w, string penStyle , string cap , string join , string bColor , string bStyle){
 
     Ellipse *newC= new Ellipse;
     newC->set_shapeID(id);
@@ -240,6 +240,7 @@ MainWindow::~MainWindow()
     }
     results.clear();
     delete ui;
+    delete canvas1;
 }
 
 
@@ -275,8 +276,8 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
     string dimentions = ui->lineEdit_D->text().toStdString();
     string bColor=ui->lineEdit_bColor->text().toStdString();
     string bStyle=ui->lineEdit_bStyle->text().toStdString();
-    vector<int> dTion=stringToInt(dimentions);
-    vector<QPoint> points=getPoint(dTion);
+    myStd::vector<int> dTion=stringToInt(dimentions);
+    myStd::vector<QPoint> points=getPoint(dTion);
 
     switch (type) {
     case 0:
@@ -303,6 +304,8 @@ void MainWindow::on_pushButton_3_clicked()  // add shape
     case 6: results.push_back(getCircle(id , dTion , color , penW , penStyle , penCap , penJoin, bColor , bStyle));
         break;
     }
+
+    updateLists();
 
     canvas1->setShapes(results);
 
@@ -335,8 +338,8 @@ void MainWindow::on_pushButton_4_clicked() { // add text {
     newText->set_shapeID(id);
 
     string dimentions = ui->lineEdit_textD->text().toStdString();
-    vector<int> dTion=stringToInt(dimentions);
-    vector<QPoint> points=getPoint(dTion);
+    myStd::vector<int> dTion=stringToInt(dimentions);
+    myStd::vector<QPoint> points=getPoint(dTion);
     newText->set_points(points[0] , points[1]);
 
     QString Qtext = ui->lineEdit_TEXT->text() ;
@@ -369,7 +372,7 @@ void MainWindow::setLoggedIn() {
 
 void MainWindow::on_save_button_clicked()
 {
-    //write below for saving the vector info to a file
+    saveChanges(results);
 }
 
 void MainWindow::on_pushButton_6_clicked() //Move button clicked
@@ -381,8 +384,8 @@ void MainWindow::on_pushButton_6_clicked() //Move button clicked
     for(int i = 0 ; i < sizeResult; ++i){
         if (id == results[i]->getID()){
             Shape *selectedShape = results[i];
-            vector<int> pointCoords = stringToInt(ui->lineEdit_coords->text().toStdString());
-            vector<QPoint> points;
+            myStd::vector<int> pointCoords = stringToInt(ui->lineEdit_coords->text().toStdString());
+            myStd::vector<QPoint> points;
 
             //Ensure the text box was filled
             if (pointCoords.size() != 0) {

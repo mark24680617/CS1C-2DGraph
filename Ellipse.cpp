@@ -1,6 +1,14 @@
 #include "Ellipse.h"
 
-void Ellipse::set_points(const vector<QPoint> &pointsList) {
+myStd::vector<QPoint> Ellipse::get_points() const {
+    myStd::vector<QPoint> pointsList;
+    pointsList.push_back(QPoint(this->rect.topLeft().x(), this->rect.topRight().y()));
+    pointsList.push_back(QPoint(this->rect.bottomRight().x(), this->rect.bottomRight().y()));
+
+    return pointsList;
+}
+
+void Ellipse::set_points(const myStd::vector<QPoint> &pointsList) {
     rect = QRect(pointsList[0], pointsList[1]);
 }
 
